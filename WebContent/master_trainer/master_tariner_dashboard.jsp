@@ -13,12 +13,16 @@
 			+ request.getContextPath() + "/";
 %>
 <%
-String master_trainer_id = request.getSession().getAttribute("trainerID").toString();
+
+ String master_trainer_id = request.getSession().getAttribute("trainerID").toString();
 MasterTrainerService mastertrainerservice = new MasterTrainerService();
 
 List<HashMap<String, Object>> data = mastertrainerservice.getAllTrainerDetails();
 
-
+if(request.getParameter("trainerID")!=null){
+	master_trainer_id = request.getParameter("trainerID");
+	
+}
 
 
 %>
@@ -60,7 +64,7 @@ List<HashMap<String, Object>> data = mastertrainerservice.getAllTrainerDetails()
 							<div class="ibox-title">
 								<h5>Trainer Details</h5>
 
-							</div>
+							</div> 
 							<div class="ibox-content">
 
 								<div class="table-responsive">
@@ -88,7 +92,7 @@ List<HashMap<String, Object>> data = mastertrainerservice.getAllTrainerDetails()
 												<td><%=row.get("sname") %></td>
 
 												<td><a
-													href="/master_trainer/master_trainer/trainer_assessment_details.jsp?s_id=<%=row.get("sid") %>&mastertrainer_id=<%=master_trainer_id%>"
+													href="/master_trainer/master_trainer/main_trainer_assessment_details.jsp?s_id=<%=row.get("sid") %>&mastertrainer_id=<%=master_trainer_id%>"
 													target="_blank"><%=row.get("assessment_list") %></a></td>
 
 											</tr>

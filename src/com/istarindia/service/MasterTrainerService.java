@@ -21,7 +21,7 @@ public class MasterTrainerService {
 
 	public StringBuffer getAllCourse(int trainerID) {
 		
-		
+		//SELECT cmsession.id,cmsession.title FROM module,cmsession WHERE module.id = cmsession.module_id and course_id = 67
 		 String trainer_skills_sql = "SELECT course_skill FROM trainer_skill WHERE trainer_id = "+trainerID;
      	ArrayList<String> arrayList = new ArrayList();
      	List<HashMap<String, Object>> data8 = db.executeQuery(trainer_skills_sql);
@@ -54,6 +54,17 @@ public class MasterTrainerService {
 	}
 
 	public List<HashMap<String, Object>> getAllAssessmentPerTrainer(int trainerID) {
+
+		String assessment_sql = "SELECT DISTINCT assessment_id,assessmenttitle FROM student_assessment,assessment WHERE student_assessment.assessment_id = assessment.id AND student_id = "
+				+ trainerID + "";
+
+		List<HashMap<String, Object>> data = db.executeQuery(assessment_sql);
+
+		return data;
+
+	}
+	
+	public List<HashMap<String, Object>> getAllAssessmentTrainer(int trainerID) {
 
 		String assessment_sql = "SELECT DISTINCT assessment_id,assessmenttitle FROM student_assessment,assessment WHERE student_assessment.assessment_id = assessment.id AND student_id = "
 				+ trainerID + "";

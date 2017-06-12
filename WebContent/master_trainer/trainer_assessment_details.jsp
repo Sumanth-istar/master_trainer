@@ -51,16 +51,16 @@ if(request.getParameter("s_id")!=null){
 </head>
 <body class="top-navigation" id="">
 	<div id="wrapper">
-		<jsp:include page="/navbar.jsp"><jsp:param name="logout_btn" value="add" /> </jsp:include>
+		<%-- <jsp:include page="/navbar.jsp"><jsp:param name="logout_btn" value="add" /> </jsp:include> --%>
 		<div id="page-wrapper" class="gray-bg">
 
-			<div class="row wrapper border-bottom white-bg page-heading">
+			<!-- <div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-10">
 					<h2 style="margin-left: 31px;">Assessment Details</h2>
 				</div>
-			</div>
+			</div> -->
 
-			<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="wrapper wrapper-content animated fadeInRight" style="padding: 0px;">
 				<div class="row" style="margin: 5px">
 					<div class="col-lg-12">
 						<div class="form-group">
@@ -108,7 +108,7 @@ if(request.getParameter("s_id")!=null){
 								<label style="margin-right: 100px;"> Check if you want to Select Trainer <input
 									type="checkbox" <%=is_selected!=false?"checked":"" %> value="<%=is_selected!=false?"true":"false" %>" id="is_checked_trainer"></label>
 									
-									<label style="margin-right: 100px;color: red;" class=""> Check if the interview is over <input
+									<label style="margin-right: 100px;color: red;" class=""> Check if the L3 interview is over <input
 									type="checkbox" <%=interview_status!=false?"checked":"" %> value="<%=interview_status!=false?"true":"false" %>" id="is_checked_interview_status" required></label>
 							</div>
 						</div>

@@ -7,10 +7,7 @@ CoordinatorService coordinatorservice = new CoordinatorService();
 List<HashMap<String, Object>> trainerData = coordinatorservice.getAllTrainerStatusDetails();
 
 
-if(trainerData.size() > 0){
-	
-	
-}
+
 
 
 %>
@@ -46,17 +43,46 @@ if(trainerData.size() > 0){
 									if(trainerData.size() > 0){
 										
 										for (HashMap<String, Object> row : trainerData) {
+											
+											String signed_up="";
+											String assessment_completed="";
+											String interview_completed="";
+											String demo_completed="";
+											
+											if((int)row.get("signed_up") == 1){
+												
+												signed_up="<i class='fa fa-check-circle' style='color: green !important;'></i>";
+											}
+                                           if((int)row.get("assessment_completed") == 1){
+												
+                                        	   signed_up="<i class='fa fa-check-circle' style='color: green !important;'></i>";
+                                        	   assessment_completed="<i class='fa fa-check-circle' style='color: green !important;'></i>";
+											}
+                                           if((int)row.get("interview_completed") == 1){
+	
+                                        	   signed_up="<i class='fa fa-check-circle' style='color: green !important;'></i>";
+                                        	   assessment_completed="<i class='fa fa-check-circle' style='color: green !important;'></i>";
+                                        	   interview_completed="<i class='fa fa-check-circle' style='color: green !important;'></i>";
+                                            }
+											if((int)row.get("demo_completed") == 1){
+	
+												    signed_up="<i class='fa fa-check-circle' style='color: green !important;'></i>";
+	                                        	   assessment_completed="<i class='fa fa-check-circle' style='color: green !important;'></i>";
+	                                        	   interview_completed="<i class='fa fa-check-circle' style='color: green !important;'></i>";
+	                                        	   demo_completed="<i class='fa fa-check-circle' style='color: green !important;'></i>";
+											}
 									%>
 
 											<tr>
 												<td><%=row.get("s_id") %></td>
 												<td><%=row.get("s_email") %></td>
 												<td><%=row.get("s_name") %></td>
-												<td><%=row.get("s_comment") %></td>											
-												<td><%=row.get("signed_up") %></td>
-												<td><%=row.get("assessment_completed") %></td>
-												<td><%=row.get("interview_completed") %></td>
-												<td><%=row.get("demo_completed") %></td>
+												<td><%=row.get("s_comment") %></td>	
+																						
+												<td><%=signed_up %></td>
+												<td><%=assessment_completed %></td>
+												<td><%=interview_completed %></td>
+												<td><%=demo_completed%></td> 
 												
 
 											</tr>

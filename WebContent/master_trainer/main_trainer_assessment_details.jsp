@@ -13,17 +13,16 @@
 			+ request.getContextPath() + "/"; 
 %>
 <%
-int coordinator_id =0;
-if(request.getSession().getAttribute("coordinatorID")!=null){
-	coordinator_id = Integer.parseInt(request.getSession().getAttribute("coordinatorID").toString());
+int master_trainer_id = 0;
+int s_id = 0;
 
-}
-/* if(request.getParameter("coordinator_id")!=null){
+if(request.getParameter("s_id")!=null){
 	
-	coordinator_id = request.getParameter("trainer_id");
-} */
-System.out.print(coordinator_id); 
-
+	s_id = Integer.parseInt(request.getParameter("s_id"));
+	master_trainer_id = Integer.parseInt(request.getParameter("mastertrainer_id"));
+	
+	
+}
 %>
 <head>
 
@@ -51,12 +50,12 @@ System.out.print(coordinator_id);
 
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-12">
-					<h2 style="margin-left: 31px;">Trainer Details</h2>
+					<h2 style="margin-left: 31px;">Assessment Details</h2>
 					
 				</div>
 			</div>
 
-			<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="wrapper wrapper-content animated fadeInRight" style="padding: 0px;">
 				<div class="row" style="margin: 5px">
 					<div class="row">
                 
@@ -64,19 +63,28 @@ System.out.print(coordinator_id);
                 <div class="col-lg-12">
                     <div class="tabs-container">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#tab-1">Trainer Wise Details</a></li>
-                            <li class=""><a data-toggle="tab" href="#tab-2">Course And City  Details</a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab-1">Trainer Assessment Details</a></li>
+                            <li class=""><a data-toggle="tab" href="#tab-2">L4-Trainer Question</a></li>
                         </ul>
                         <div class="tab-content">
                             <div id="tab-1" class="tab-pane active">
                                 <div class="panel-body">
                                   
-                                    <jsp:include page="/coordinator/partial/tab1_content.jsp" />  
+                                    <jsp:include page="/master_trainer/trainer_assessment_details.jsp" >
+                                 
+                                   <jsp:param name="mastertrainer_id" value="<%=master_trainer_id%>" />
+                                   <jsp:param name="s_id" value="<%=s_id%>" />
+                                 
+                                            </jsp:include>  
                                 </div>
                             </div>
                             <div id="tab-2" class="tab-pane">
                                 <div class="panel-body">
-                                 <jsp:include page="/coordinator/partial/tab2_content.jsp" /> 
+                                  <jsp:include page="/master_trainer/tab2_content.jsp" >  
+                                   <jsp:param name="mastertrainer_id" value="<%=master_trainer_id%>" />
+                                   <jsp:param name="s_id" value="<%=s_id%>" />
+                                 
+                                            </jsp:include>  
                                 </div>
                             </div>
                         </div>
@@ -84,7 +92,18 @@ System.out.print(coordinator_id);
 
                     </div>
                 </div>
-           </div>
+                
+                 
+                 
+                
+                
+                
+
+
+
+
+
+            </div>
 				</div>
 			</div>
 		</div>
@@ -105,27 +124,7 @@ System.out.print(coordinator_id);
 <script type="text/javascript">
 
 $(document).ready(function(){
-	
-	
-	
-	$( ".pre_l1_btn" ).click(function() {
-		
-		var id = $(this).attr('id');
-		var idd =id.split('_')[3];
-		var inputData = $('#pre_l1_input_'+idd).val();
-		var city= $(this).attr("data-city");
-		var session_id= $(this).attr("data-session_id");
-		
-		var jsp="<%=baseURL%>coordinator";
-	    	$.post(jsp, 
-					{key:'pre_l1',inputData:inputData,session_id:session_id,city:city}, 
-					function(data) {
-						
-					
-			});
-		
-		});
-   
+
 
 });
 

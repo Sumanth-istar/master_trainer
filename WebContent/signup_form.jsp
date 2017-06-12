@@ -6,6 +6,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<style type="text/css">
+
+#floating-panel {
+        position: absolute;
+        top: 46px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+</style>
 <%
 	String url = request.getRequestURL().toString();
 	String baseURL = url.substring(0, url.length() - request.getRequestURI().length())
@@ -244,11 +261,11 @@
 									<label class="col-sm-2 control-label">Experience:</label>
 
 									<div class="col-sm-3 ">
-										<input type="number" required placeholder="year"
+										<input type="number"  placeholder="year"
 											name="experince_years" class="form-control">
 									</div>
 									<div class="col-sm-3 ">
-										<input type="number" required placeholder="month"
+										<input type="number"  placeholder="month"
 											name="experince_months" class="form-control">
 									</div>
 								</div>
@@ -526,7 +543,10 @@
 			<div class="col-lg-5">
 				</br> <label class="col-sm-6 control-label">Mark the preferred
 					College or Center locations:</label>
-				
+				<div id="floating-panel">
+      <input id="address" type="textbox" value="">
+      <input id="submit" type="button" value="Geocode">
+    </div>
 				<div id="googleMap" style="width: 100%; height: 82vh;"></div>
 
 			</div>
@@ -712,9 +732,32 @@
 			delete markers[markerId]; // delete marker instance from markers object
 
 		};
-
+		document.getElementById('submit').addEventListener('click', function() {
+	          geocodeAddress(geocoder, map);
+	        });
+		
+		 function geocodeAddress(geocoder, resultsMap) {
+		        var address = document.getElementById('address').value;
+		        geocoder.geocode({'address': address}, function(results, status) {
+		          if (status === 'OK') {
+		            resultsMap.setCenter(results[0].geometry.location);
+		            var marker = new google.maps.Marker({
+		              map: resultsMap,
+		              position: results[0].geometry.location
+		            });
+		            
+		            var markerId = getMarkerUniqueId(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+		            markers[markerId] = marker; 
+		            bindMarkerEvents(marker);
+		          } else {
+		            alert('Geocode was not successful for the following reason: ' + status);
+		          }
+		        });
+		      }
 
 	}
+	
+	
 </script>
 
 <script async defer
