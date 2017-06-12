@@ -59,7 +59,13 @@ public class MasterTrainerController extends HttpServlet {
 			String feedback_sql = "INSERT INTO master_trainer_feedback ( 	ID, 	master_trainer_id, 	COMMENT, 	is_selected, 	trainer_id, 	interview_status ) VALUES 	( 		(select COALESCE(max(id),0)+1 from master_trainer_feedback), 		"+mastertrainer_id+", 		'"+comment+"', 		"+is_tariner_selected+", 		"+trainer_id+",  "+interview_status+" 	);";
 			
 			db.executeUpdate(feedback_sql);
+			if(interview_status.equalsIgnoreCase("true")){
+				
+				String sqql = "UPDATE student SET  signup_status = 'INTERVIEW_COMPLETED' WHERE 	id ="+trainer_id;
+				 db.executeUpdate(sqql);
 
+			}
+			
 			if (!courseids.equalsIgnoreCase("")) {
 
 				String[] words = courseids.split(",");

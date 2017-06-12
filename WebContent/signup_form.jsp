@@ -196,7 +196,7 @@
 									<label class="col-sm-2 control-label">UG Degree Name:</label>
 
 									<div class="col-sm-5">
-										<select class="form-control m-b" name="ug_degree">
+										<select class="form-control m-b" required name="ug_degree">
 											<option value="">Select UG Degree</option>
 											<option value="BTECH">BTECH</option>
 											<option value="BA">BA</option>
@@ -266,10 +266,10 @@
 
 											List<HashMap<String, Object>> data1 = db.executeQuery(course_sql);
 										%>
-										<select data-placeholder="Choose a Course..."
+										<select data-placeholder="Choose a Course..." required
 											class="chosen-select course_holder" multiple
 											style="width: 350px;" tabindex="4">
-											<option value="">Select</option>
+											<!-- <option value="">Select</option> -->
 											<%
 												if (data.size() > 0) {
 													for (HashMap<String, Object> row1 : data1) {

@@ -117,7 +117,25 @@ System.out.print(coordinator_id);
 
 $(document).ready(function(){
 	
-    
+	
+	
+	$( ".pre_l1_btn" ).click(function() {
+		
+		var id = $(this).attr('id');
+		var idd =id.split('_')[3];
+		var inputData = $('#pre_l1_input_'+idd).val();
+		var city= $(this).attr("data-city");
+		var session_id= $(this).attr("data-session_id");
+		
+		var jsp="<%=baseURL%>coordinator";
+	    	$.post(jsp, 
+					{key:'pre_l1',inputData:inputData,session_id:session_id,city:city}, 
+					function(data) {
+						
+					
+			});
+		
+		});
    
 
 });

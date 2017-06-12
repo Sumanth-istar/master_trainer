@@ -53,7 +53,7 @@ public class TrainerController extends IStarBaseServelet {
     		     			int assessment_id = (int) row.get("assessment_id");
     		     			int assessment_min = (int) row.get("assessment_min");
     		     			
-    		     			String sss = "SELECT CAST(count(*) as INTEGER)  FROM student_assessment WHERE student_id = "+trainer_id+" AND assessment_id ="+assessment_id;
+    		     			String sss = "SELECT CAST(count(*) as INTEGER)  FROM trainer_assessment WHERE trainer_id = "+trainer_id+" AND assessment_id ="+assessment_id;
     		     			 System.err.println(sss);
     		     			List<HashMap<String, Object>> data1 = db.executeQuery(sss);
     	    				 if (data1.size() > 0) {

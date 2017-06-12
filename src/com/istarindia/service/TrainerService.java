@@ -21,7 +21,7 @@ public class TrainerService {
 			int attended_ass = (int) data3.get(0).get("attended_ass");
 			if (tot_ass == attended_ass) {
 				
-				String sqqll = "UPDATE student SET  signup_status = 'ASSESSMENT COMPLETED' WHERE 	(ID = "+trainerID+");";
+				String sqqll = "UPDATE student SET  signup_status = 'ASSESSMENT_COMPLETED' WHERE 	(ID = "+trainerID+");";
 				 System.err.println(sqqll);
 	  			 db.executeUpdate(sqqll);
 			}
@@ -149,7 +149,7 @@ public class TrainerService {
 								"          <div  class='ibox-content text-center css-animation-box' >                                         "
 										+ "          <div class='row'>                         "
 										+ "    <div class='col-sm-6 text-center'>  <label style='float: left;'> <input style='margin-right: 20px;'type='radio' data-option=option_"
-										+ i + "  value='" + marking_scheme + "' id='" + ans_id
+										+ j + "  value='" + marking_scheme + "' id='" + ans_id
 										+ "' class='options' name='optionsRadios'>"
 										+ ans_text.replaceAll("<p>", "").replaceAll("</p>", "")
 										+ "</label>  </div>                                              "

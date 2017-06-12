@@ -111,7 +111,7 @@ public class TrainerSignUpFormController extends IStarBaseServelet {
             int address_id = db.executeUpdateReturn(sql);
             
              
-            sql = "INSERT INTO student ( 	ID, 	email, 	gender, 	is_verified, 	istar_authorization_token, 	mobile, 	NAME, 	PASSWORD, 	token_expired, 	token_verified, 	user_type, 	father_name, 	mother_name, 	address_id, 	organization_id, 	phone, 	image_url, 	created_at, 	is_master,   signup_status ) VALUES 	( 		(SELECT max(id)+1 FROM student), 		'"+email+"', 		'"+gender+"', 		't', 		NULL, 		'"+mobile+"', 		'"+f_name+"', 		'"+password+"', 		NULL, 		NULL, 		'STUDENT', 		'Not Provided', 		'Not Provided', 		"+address_id+", 		'2', 		'7597049836', 		'/video/android_images/"+f_name.toUpperCase().charAt(0)+".png', 		NULL, 		'f',    'SIGNED-UP' 	)RETURNING ID;";
+            sql = "INSERT INTO student ( 	ID, 	email, 	gender, 	is_verified, 	istar_authorization_token, 	mobile, 	NAME, 	PASSWORD, 	token_expired, 	token_verified, 	user_type, 	father_name, 	mother_name, 	address_id, 	organization_id, 	phone, 	image_url, 	created_at, 	is_master,   signup_status ) VALUES 	( 		(SELECT max(id)+1 FROM student), 		'"+email+"', 		'"+gender+"', 		't', 		NULL, 		'"+mobile+"', 		'"+f_name+"', 		'"+password+"', 		NULL, 		NULL, 		'STUDENT', 		'Not Provided', 		'Not Provided', 		"+address_id+", 		'2', 		'7597049836', 		'/video/android_images/"+f_name.toUpperCase().charAt(0)+".png', 		NULL, 		'f',    'SIGNED_UP' 	)RETURNING ID;";
 	
             System.err.println(sql);
             int trainer_id = db.executeUpdateReturn(sql);
@@ -231,7 +231,7 @@ public class TrainerSignUpFormController extends IStarBaseServelet {
 						if(time.equalsIgnoreCase("11:00 AM-12:00 PM")){
 							t11am_12pm= true;
 						}
-						if(time.equalsIgnoreCase("12:00 AM-1:00 PM")){
+						if(time.equalsIgnoreCase("12:00 PM-1:00 PM")){
 							t12pm_1pm= true;
 						}
 						if(time.equalsIgnoreCase("1:00 PM-2:00 PM")){
@@ -270,7 +270,7 @@ public class TrainerSignUpFormController extends IStarBaseServelet {
 		 }
 		 
 		// response.getWriter().append("/index.jsp");
-		 response.sendRedirect("master_trainer/index.jsp");
+		 response.sendRedirect("../master_trainer/index.jsp");
 	}
 
 	
