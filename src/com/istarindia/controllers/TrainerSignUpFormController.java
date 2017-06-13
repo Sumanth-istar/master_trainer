@@ -117,11 +117,7 @@ public class TrainerSignUpFormController extends IStarBaseServelet {
             int trainer_id = db.executeUpdateReturn(sql);
             
             
-          //  sql = "INSERT INTO student ( 	ID, 	email, 	gender, 	is_verified, 	istar_authorization_token, 	mobile, 	NAME, 	PASSWORD, 	token_expired, 	token_verified, 	user_type, 	father_name, 	mother_name, 	address_id, 	organization_id, 	phone, 	image_url, 	created_at, 	is_master,   signup_status ) VALUES 	( 		(SELECT max(id)+1 FROM student), 		'"+presentor_email+"', 		'"+gender+"', 		't', 		NULL, 		'"+mobile+"', 		'"+f_name+"', 		'"+password+"', 		NULL, 		NULL, 		'PRESENTOR', 		'Not Provided', 		'Not Provided', 		"+address_id+", 		'2', 		'7597049836', 		'/video/android_images/"+f_name.toUpperCase().charAt(0)+".png', 		NULL, 		'f',    NULL 	)RETURNING ID;";
-
-         //   System.err.println(sql);
-         //   int presentor_id = db.executeUpdateReturn(sql);
-            
+         
             
              sql = "INSERT INTO student_profile_data (student_id, firstname, lastname, dob, mobileno, gender, pincode, aadharno, email, yop_10, marks_10, yop_12, marks_12, has_under_graduation, under_graduation_specialization_name, under_gradution_marks, has_post_graduation, post_graduation_specialization_name, post_gradution_marks, is_studying_further_after_degree, job_sector, preferred_location, company_name, position, duration, description, interested_in_type_of_course, area_of_interest, image_url_10, image_url_12, profile_image, id, under_graduate_degree_name, pg_degree_name, resume_url, user_category) "
     				+ "VALUES ('"+trainer_id+"', '"+f_name+" ', '"+l_name+"', '"+dob+"', '"+mobile+"', '"+gender+"', NULL, '0', '"+email+"', NULL, NULL, NULL, NULL, '"+has_ug_degree+"', 'NOT PROVIDED', NULL, '"+has_pg_degree+"', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '/video/android_images/"+f_name.toUpperCase().charAt(0)+".png', (Select max(id)+1 from student_profile_data), '"+ug_degree+"', '"+pg_degree+"', NULL, NULL);";
@@ -129,10 +125,7 @@ public class TrainerSignUpFormController extends IStarBaseServelet {
              System.err.println(sql);
              db.executeUpdate(sql);
     		 
-    		// sql="INSERT INTO trainer_presentor ( 	id, 	trainer_id, 	presentor_id ) VALUES 	((SELECT max(id)+1 FROM trainer_presentor), "+trainer_id+", "+presentor_id+");";
-    		 
-    		// System.err.println(sql);
-    		// db.executeUpdate(sql);
+    		
     		 
     		 
     		 if(!session_id.equalsIgnoreCase("")){

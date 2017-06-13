@@ -41,6 +41,8 @@
 <link href="<%=baseURL %>font-awesome/css/font-awesome.css" rel="stylesheet">
 <link href="<%=baseURL %>css/plugins/dataTables/datatables.min.css" rel="stylesheet">
 <link href="<%=baseURL %>css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+ <link href="<%=baseURL %>css/plugins/select2/select2.min.css" rel="stylesheet">
+
 
 <link href="<%=baseURL %>css/plugins/chosen/bootstrap-chosen.css" rel="stylesheet">
 <link href="<%=baseURL %>css/plugins/select2/select2.min.css" rel="stylesheet">
@@ -183,11 +185,12 @@
 										List<HashMap<String, Object>> data = db.executeQuery(pin_sql);
 									%>
 
+									
+									
 									<div class="col-sm-5">
-										<select class="form-control m-b" required name="pincode">
-											<option value="">Select Pincode</option>
-
-											<%
+									 <select class="select2_demo_1 form-control"required name="pincode">
+                                      <option value="">Select Pincode</option>
+                                      	<%
 												if (data.size() > 0) {
 													for (HashMap<String, Object> row : data) {
 											%>
@@ -199,8 +202,7 @@
 												}
 												}
 											%>
-
-										</select>
+                                    </select>
 									</div>
 								</div>
 
@@ -570,6 +572,8 @@
 <script src="<%=baseURL %>js/plugins/jasny/jasny-bootstrap.min.js"></script>
  <!-- Jquery Validate -->
     <script src="<%=baseURL %>js/plugins/validate/jquery.validate.min.js"></script>
+  <!-- Select2 -->
+    <script src="<%=baseURL %>js/plugins/select2/select2.full.min.js"></script>
 
 
 
@@ -599,6 +603,8 @@
 			                  
 			                 }
 			             });
+						 
+						 $(".select2_demo_1").select2();
 
 
 						$('.chosen-select').chosen({

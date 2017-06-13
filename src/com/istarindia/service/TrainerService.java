@@ -57,7 +57,7 @@ public class TrainerService {
 					}
 				}
 
-				out.append("<div class='col-md-3'><div class='ibox'><div class='ibox-content product-box'>"
+				out.append("<div style='min-height: 388px!important;' class='col-md-3'><div class='ibox'><div style='min-height: 363px!important;' class='ibox-content product-box'>"
 						+ "<div class='product-imitation'>[ Assessment ]</div><div class='product-desc'><a href='#' class='product-name'>"
 						+ assessmenttitle + "</a><small class='text-muted'>Assessment Duration: " + hrs + " h :" + min
 						+ " m </small><div class='small m-t-xs'>" + scoredetails + "</div>"

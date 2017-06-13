@@ -129,6 +129,23 @@
 							<div class="ibox float-e-margins">
 
 								<div class="ibox-content">
+								<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+								
+								<div class="col-lg-12">
+								<div class="col-lg-6">
+											<div class="form-group">
+												<label class="col-sm-4 control-label">Upload Resume:</label>
+
+												<div class="col-sm-5">
+													<input type="file" name="files"/>
+                                                 
+												</div>
+											</div></div><div class="col-lg-6">
+											 <input type="submit" value="Upload" id="btnSubmit"/>
+											</div>
+										</div>
+                            
+								</form><br/><br/><br/>
 									<form class="form-horizontal" action="" method="post">
 										<input type="hidden" id="teaching_address"
 											name="teaching_address" value="">
@@ -348,7 +365,7 @@
 													<select data-placeholder="Choose a Course..."
 														class="chosen-select course_holder" multiple
 														style="width: 350px;" tabindex="4">
-														<option value="">Select</option>
+														
 														<%
 															if (courseData.size() > 0) {
 																for (HashMap<String, Object> row1 : courseData) {
@@ -369,12 +386,12 @@
 											</div>
 											
 										</div>
-										<div class="col-lg-12">
+										<!-- <div class="col-lg-12">
 										 
 										 <label class="col-sm-2 control-label">Intrested
 													 Would you like to attach you CV?:</label>
 										 <a href="" id="resume_link">Click here</a>
-                                          <input type="file" id="resume" style="visibility: hidden"></div>
+                                          <input type="file" id="resume" style="visibility: hidden"></div> -->
 
 										<div class="col-lg-12">
 											<label class="col control-label">Available Time
@@ -710,6 +727,7 @@
 											</div>
 										</div>
 									</form>
+									
 								</div>
 							</div>
 						</div>
@@ -757,8 +775,51 @@
 					function() {
 						
 						
+						$("#btnSubmit").click(function (event) {
 
-						$('#resume_link').click(function( e ) {
+					        //stop submit the form, we will post it manually.
+					        event.preventDefault();
+
+					        // Get form
+					        var form = $('#fileUploadForm')[0];
+					        var servlet="<%=baseURL%>media_uplaod";
+							// Create an FormData object
+					        var data = new FormData(form);
+
+							// If you want to add an extra field for the FormData
+					        data.append("CustomField", "This is some extra data, testing");
+
+							// disabled the submit button
+					        $("#btnSubmit").prop("disabled", true);
+
+					        $.ajax({
+					            type: "POST",
+					            enctype: 'multipart/form-data',
+					            url: servlet,
+					            data: data,
+					            processData: false,
+					            contentType: false,
+					            cache: false,
+					            timeout: 600000,
+					            success: function (data) {
+
+					                $("#result").text(data);
+					                console.log("SUCCESS : ", data);
+					                $("#btnSubmit").prop("disabled", false);
+
+					            },
+					            error: function (e) {
+
+					                $("#result").text(e.responseText);
+					                console.log("ERROR : ", e);
+					                $("#btnSubmit").prop("disabled", false);
+
+					            }
+					        });
+
+					    });
+
+					<%--  $('#resume_link').click(function( e ) {
 						    e.preventDefault();
 						    $('#resume').trigger('click');
 						});
@@ -766,12 +827,56 @@
 						$('#resume').on( 'change', function() {
 						   myfile= $( this ).val();
 						   var ext = myfile.split('.').pop();
+						   var servlet="<%=baseURL%>media_uplaod";
 						   if(ext=="pdf" || ext=="docx" || ext=="doc"){
-						       alert(ext);
+						      
+							   
+							   $.ajax({
+						            type: "POST",
+						            url: servlet,
+						            enctype: 'multipart/form-data',
+						            data: {
+						                file: myfile
+						            },
+						            success: function () {
+						                alert("Data Uploaded: ");
+						            }
+						        });
+							   
+							   
 						   } else{
-						       alert(ext);
+						       
+							 
+							   $.ajax({
+						            type: "POST",
+						            url: servlet,
+						            enctype: 'multipart/form-data',
+						            data: {
+						                file: myfile
+						            },
+						            success: function () {
+						                alert("Data Uploaded: ");
+						            }
+						        });
+							   
 						   }
-						});
+						}); --%> 
+						
+						/*  $("#uploadbutton").click(function () {
+						        var filename = $("#file").val();
+
+						        $.ajax({
+						            type: "POST",
+						            url: "addFile.do",
+						            enctype: 'multipart/form-data',
+						            data: {
+						                file: filename
+						            },
+						            success: function () {
+						                alert("Data Uploaded: ");
+						            }
+						        });
+						    }); */
 						
 						
 						$( ".add_course" ).click(function() {

@@ -73,6 +73,9 @@ public class LoginController extends HttpServlet {
 								if(is_master !=null && is_master == true){
 									System.err.println(is_master);
 									url="/master_trainer/master_tariner_dashboard.jsp";
+								}else{
+									
+									url="/trainer/trainer_dashboard.jsp";
 								}
 								
 							}

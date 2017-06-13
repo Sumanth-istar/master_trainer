@@ -54,15 +54,14 @@ if(request.getParameter("s_id")!=null){
 		<%-- <jsp:include page="/navbar.jsp"><jsp:param name="logout_btn" value="add" /> </jsp:include> --%>
 		<div id="page-wrapper" class="gray-bg">
 
-			<!-- <div class="row wrapper border-bottom white-bg page-heading">
-				<div class="col-lg-10">
-					<h2 style="margin-left: 31px;">Assessment Details</h2>
-				</div>
-			</div> -->
+			
 
 			<div class="wrapper wrapper-content animated fadeInRight" style="padding: 0px;">
 				<div class="row" style="margin: 5px">
 					<div class="col-lg-12">
+					<a class="list-group-item active">
+	              <%=mastertrainerservice.getTrainerNotAttendedDetails(s_id) %>
+               </a><br/><br/>
 						<div class="form-group">
 
 							<label>Comments</label>
@@ -112,6 +111,8 @@ if(request.getParameter("s_id")!=null){
 									type="checkbox" <%=interview_status!=false?"checked":"" %> value="<%=interview_status!=false?"true":"false" %>" id="is_checked_interview_status" required></label>
 							</div>
 						</div>
+						
+						<br/><br/>
 						<div class="tabs-container">
 							<ul class="nav nav-tabs">
 							       

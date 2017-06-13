@@ -77,6 +77,7 @@ List<HashMap<String, Object>> data4 = db.executeQuery(totalans_sql);
 
 			<%
 	int userselectedoption = 0;
+	boolean userquit = false;
 	String student_sql ="SELECT correct,option1,option2,option3,option4,option5 FROM student_assessment WHERE student_assessment.assessment_id = "+Integer.parseInt(request.getParameter("assessment_id"))+" AND student_assessment.question_id = "+question_id+" AND student_assessment.student_id="+Integer.parseInt(request.getParameter("s_id"));
 	
 	List<HashMap<String, Object>> data2 = db.executeQuery(student_sql); 
@@ -109,6 +110,9 @@ if (row2.get("option4").toString().equalsIgnoreCase("true")){
 			
 		}
 		
+	}else{
+		userselectedoption = -1;
+		userquit = true;
 	}
 	
 		String options_sql = "SELECT assessment_option.id,assessment_option.text,assessment_option.marking_scheme FROM assessment_option WHERE assessment_option.question_id ="+question_id+"ORDER BY assessment_option.id";
@@ -146,6 +150,7 @@ if (row2.get("option4").toString().equalsIgnoreCase("true")){
 				<%
 						
 					}else{
+						if(userquit!=true ){
 						
 						%>
 
@@ -155,6 +160,18 @@ if (row2.get("option4").toString().equalsIgnoreCase("true")){
 
 
 				<%
+					}else{
+						
+						%>
+						
+						<div class="alert alert-warning">
+					<b><p>User quit the assessment in between</p></b>
+				</div>
+						
+						
+						<%
+					}
+					
 					}
 					
 				}

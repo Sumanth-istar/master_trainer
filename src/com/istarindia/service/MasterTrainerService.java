@@ -108,6 +108,27 @@ public class MasterTrainerService {
 		return out;
 
 	}
+	public StringBuffer getTrainerNotAttendedDetails(int trainerID) {
+
+		String totalans_sql = "SELECT string_agg(assessmenttitle, ', ') as assessment_list, student.name FROM 	trainer_assessment, assessment, student WHERE 	assessment_id NOT IN ( 		SELECT 			assessment_id 		FROM 			student_assessment 		WHERE 			student_id = "+trainerID+" 	) AND trainer_assessment.assessment_id = assessment.id AND student.id = trainer_assessment.trainer_id AND trainer_assessment.trainer_id = "+trainerID+" GROUP BY student.name";
+
+		List<HashMap<String, Object>> data = db.executeQuery(totalans_sql);
+
+		StringBuffer out = new StringBuffer();
+       
+		for (HashMap<String, Object> row : data) {
+			String user_name = (String) row.get("name");
+			String assessment_list = (String) row.get("assessment_list");
+			
+
+			out.append(" <h3 class='list-group-item-heading'>" + user_name + " Has Not Attended:  " + assessment_list + "</h3>");
+
+		}
+		
+		out.append("");
+		return out;
+
+	}
 
 	public  StringBuffer getTrainerQuestionDetailsPerTrainer(int trainerID,int assessmentID) {
 
