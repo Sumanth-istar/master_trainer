@@ -65,7 +65,7 @@ System.out.print(coordinator_id);
                     <div class="tabs-container">
                         <ul class="nav nav-tabs">
                             <li class="active"><a data-toggle="tab" href="#tab-1">Trainer Wise Details</a></li>
-                            <li class=""><a data-toggle="tab" href="#tab-2">Course And City  Details</a></li>
+                            <li class=""><a data-toggle="tab" href="#tab-2">Course And City Wise  Details</a></li>
                         </ul>
                         <div class="tab-content">
                             <div id="tab-1" class="tab-pane active">
@@ -95,7 +95,7 @@ System.out.print(coordinator_id);
 </body>
 <!-- Mainly scripts -->
 <script src="<%=baseURL %>js/jquery-2.1.1.js"></script>
-
+<script src="<%=baseURL %>js/plugins/dataTables/datatables.min.js"></script>
 
 <script src="<%=baseURL %>js/bootstrap.min.js"></script>
 <!-- Chosen -->
@@ -106,7 +106,24 @@ System.out.print(coordinator_id);
 
 $(document).ready(function(){
 	
-	
+	  $('.dataTables-example').DataTable({
+	        pageLength: 10,
+	        responsive: true,
+	        dom: '<"html5buttons"B>lTfgitp',
+	        buttons: [
+	            {
+	             customize: function (win){
+	                    $(win.document.body).addClass('white-bg');
+	                    $(win.document.body).css('font-size', '10px');
+
+	                    $(win.document.body).find('table')
+	                            .addClass('compact')
+	                            .css('font-size', 'inherit');
+	            }
+	            }
+	        ]
+
+	    });
 	
 	$( ".pre_l1_btn" ).click(function() {
 		

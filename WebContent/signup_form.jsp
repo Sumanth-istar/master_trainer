@@ -56,7 +56,7 @@
 		</jsp:include>
 
 		<div id="page-wrapper" class="white-bg">
-
+             <div class="row">
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-10">
 					<h2 style="margin-left: 31px;">Trainer Sign Up Form</h2>
@@ -67,7 +67,7 @@
 				<div class="ibox float-e-margins">
 
 					<div class="ibox-content">
-						<form class="form-horizontal" action="<%=baseURL%>signup_form"
+						<form class="form-horizontal" id="signup_form" action="<%=baseURL%>signup_form"
 							method="post">
 							<input type="hidden" id="teaching_address"
 								name="teaching_address" value="">
@@ -283,8 +283,8 @@
 
 											List<HashMap<String, Object>> data1 = db.executeQuery(course_sql);
 										%>
-										<select data-placeholder="Choose a Course..." required
-											class="chosen-select course_holder" multiple
+										<select data-placeholder="Choose a Course..." 
+											class="chosen-select course_holder" multiple 
 											style="width: 350px;" tabindex="4">
 											<!-- <option value="">Select</option> -->
 											<%
@@ -305,9 +305,9 @@
 							</div>
 
 							<div class="col-lg-12">
-								<label class="col-sm-3 control-label">Available Time
+								<label class="col control-label">Available Time
 									Sloat:</label> <input type="hidden" id="avaiable_time"
-									name="avaiable_time" value="">
+									name="avaiable_time" value=""><br/><br/>
 								<table class="table table-bordered" id='mytable'>
 									<thead>
 										<tr>
@@ -545,13 +545,18 @@
 					College or Center locations:</label>
 				<div id="floating-panel">
       <input id="address" type="textbox" value="">
-      <input id="submit" type="button" value="Geocode">
+      <input id="submit" type="button" value="Search">
     </div>
 				<div id="googleMap" style="width: 100%; height: 82vh;"></div>
+				
+								<div style="margin: 28px;" id="address_view">
+								
+								
+								</div>
 
 			</div>
 		</div>
-	</div>
+	</div></div>
 
 
 	<!-- Mainly scripts -->
@@ -563,6 +568,9 @@
 <script src="<%=baseURL %>js/plugins/chosen/chosen.jquery.js"></script>
 <!-- Input Mask-->
 <script src="<%=baseURL %>js/plugins/jasny/jasny-bootstrap.min.js"></script>
+ <!-- Jquery Validate -->
+    <script src="<%=baseURL %>js/plugins/validate/jquery.validate.min.js"></script>
+
 
 
 <script type="text/javascript">
@@ -571,10 +579,44 @@
 	$(document)
 			.ready(
 					function() {
+						
+						
+						 $("#signup_form").validate({
+			                 rules: {
+			                     password: {
+			                         required: true,
+			                         minlength: 8
+			                     },
+			                    
+			                   
+			                     mobile: {
+			                         required: true,
+			                         minlength: 10,
+			                         maxlength: 10
+
+			                        
+			                     }
+			                  
+			                 }
+			             });
+
 
 						$('.chosen-select').chosen({
 							width : "70%"
 						});
+						
+						$.validator.setDefaults({ ignore: ":hidden:not(select)" });
+
+						// validation of chosen on change
+						if ($("select.chosen-select").length > 0) {
+						    $("select.chosen-select").each(function() {
+						        if ($(this).attr('required') !== undefined) {
+						            $(this).on("change", function() {
+						                $(this).valid();
+						            });
+						        }
+						    });
+						}
 
 						$('.course_holder').change(function() {
 
@@ -638,12 +680,19 @@
 
 		if (formatted_address === undefined) {
 			delete map[markerId];
+			$("#id_"+markerId.replace('.','_').replace('.','_')).remove();
 		} else {
 			map[markerId] = formatted_address;
+			
+			var txt = "<p id='id_"+markerId.replace('.','_').replace('.','_')+"'><b>Address:</b> "+formatted_address+"</p>"; 
+			 $("#address_view").append(txt);
 		}
 
 		var map1 = JSON.stringify(map);
 		$('#teaching_address').val(map1);
+		
+		
+		
 	}
 	function myMap() {
 		var map;
@@ -747,6 +796,7 @@
 		            });
 		            
 		            var markerId = getMarkerUniqueId(results[0].geometry.location.lat(), results[0].geometry.location.lng());
+		            coordinates_to_address(results[0].geometry.location.lat(), results[0].geometry.location.lng());
 		            markers[markerId] = marker; 
 		            bindMarkerEvents(marker);
 		          } else {

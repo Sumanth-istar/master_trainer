@@ -14,17 +14,16 @@
 
 							</div> -->
 							<div class="ibox-content">
-
+							<div class="row" >
+<div class="col-lg-6">
 								<div class="table-responsive">
+									<div class="table-responsive">
 									<table
 										class="table table-striped table-bordered table-hover dataTables-example">
 										<thead>
 											<tr>
 											    <th>Soft Skills</th>
 												<th>Rating (1- 5)</th>
-												<th>Quiz the candidate on these topics:</th>
-												<th>Rating (1- 5)</th>
-												
 												
 											</tr>
 										</thead>
@@ -40,16 +39,9 @@
 											         <option value="3">3</option>
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
-											          </td>
-												<td>Operation of banks</td>
-												<td>
-												<select class="form-control m-b" required name="b_quiz_1">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
+												
 												</td>
+												
 												
 											</tr>
 										<tr>
@@ -61,15 +53,7 @@
 											         <option value="3">3</option>
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
-												</td>
-												<td>Prudential norms</td>
-												<td>
-												<select class="form-control m-b" required name="b_quiz_2">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
+												
 												</td>
 												
 											</tr>
@@ -82,11 +66,9 @@
 											         <option value="3">3</option>
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
-												</td>
-												<td></td>
-												<td>
 												
 												</td>
+												
 												
 											</tr>
 											<tr>
@@ -98,11 +80,9 @@
 											         <option value="3">3</option>
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
-												</td>
-												<td></td>
-												<td>
 												
 												</td>
+												
 												
 											</tr>
 											<tr>
@@ -114,11 +94,9 @@
 											         <option value="3">3</option>
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
-												</td>
-												<td></td>
-												<td>
 												
 												</td>
+												
 												
 											</tr>
 											<tr>
@@ -130,12 +108,9 @@
 											         <option value="3">3</option>
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
-												</td>
-												<td></td>
-												<td>
-												
 												
 												</td>
+												
 												
 											</tr>
 											<tr>
@@ -148,10 +123,7 @@
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
 												</td>
-												<td></td>
-												<td>
 												
-												</td>
 												
 											</tr>
 											<tr>
@@ -163,9 +135,9 @@
 											         <option value="3">3</option>
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
+												
 												</td>
-												<td></td>
-												<td></td>
+												
 												
 											</tr>
 											<tr>
@@ -178,8 +150,7 @@
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
 												</td>
-												<td></td>
-												<td></td>
+												
 												
 											</tr>
 											<tr>
@@ -191,9 +162,9 @@
 											         <option value="3">3</option>
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
+												
 												</td>
-												<td></td>
-												<td></td>
+											
 												
 											</tr>
 											<tr>
@@ -206,8 +177,7 @@
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
 												</td>
-												<td></td>
-												<td></td>
+												
 												
 											</tr>
 											<tr>
@@ -220,8 +190,7 @@
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
 												</td>
-												<td></td>
-												<td></td>
+												
 												
 											</tr>
 											<tr>
@@ -234,8 +203,7 @@
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
 												</td>
-												<td></td>
-												<td></td>
+												
 												
 											</tr>
 											<tr>
@@ -248,15 +216,64 @@
 											         <option value="4">4</option>
 											          <option value="5">5</option></select>
 												</td>
-												<td></td>
-												<td></td>
+												
 												
 											</tr>
+										
 
 
 										</tbody>
 									</table>
 								</div>
+								</div></div>
+								<div class="col-lg-6">
+								<div class="table-responsive">
+									<table
+										class="table table-striped table-bordered table-hover dataTables-example">
+										<thead>
+											<tr>
+											   
+												<th>Quiz the candidate on these topics:</th>
+												<th>Rating (1- 5)</th>
+												
+												
+											</tr>
+										</thead>
+										<tbody>
+									
+
+											<tr>
+												
+												<td>Operation of banks</td>
+												<td>
+												<select class="form-control m-b" required name="b_quiz_1">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												</td>
+												
+											</tr>
+										<tr>
+												
+												<td>Prudential norms</td>
+												<td>
+												<select class="form-control m-b" required name="b_quiz_2">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												</td>
+												
+											</tr>
+											
+
+
+										</tbody>
+									</table>
+								</div></div></div>
 								<div>
 								
 								<p>Q: When does a bank face liquidity risk?</p>

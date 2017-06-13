@@ -56,7 +56,7 @@ List<HashMap<String, Object>> trainerData = coordinatorservice.getAllTrainerByco
 												<td><%=row.get("title") %></td>
 												<td><%=row.get("city") %></td>
 												<td><div class="input-group m-b"><span class="input-group-btn">
-                                            <button type="button" id="pre_l1_btn_<%=i%>" data-session_id="<%=row.get("id") %>" data-city="<%=row.get("city") %>"  class="btn btn-primary pre_l1_btn">Add</button> </span> <input type="text" id="pre_l1_input_<%=i++%>" value="<%=preL1!=""?preL1:"" %>" class="form-control">
+                                            <button type="button" id="pre_l1_btn_<%=i%>" data-session_id="<%=row.get("id") %>" data-city="<%=row.get("city") %>"  class="btn btn-primary pre_l1_btn">Add</button> </span> <input  type="text" id="pre_l1_input_<%=i++%>" value="<%=preL1!=""?preL1:"" %>" class="form-control">
                                         </div></td>
 												
 												<td><%=row.get("signed_up") %></td>

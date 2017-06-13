@@ -167,6 +167,16 @@ public class TrainerSignUpFormController extends IStarBaseServelet {
     			
     			}  
     			 
+    		 }else{
+    			 
+    			 
+    			 String sqqql ="INSERT INTO trainer_assessment ( 	ID, 	trainer_id, 	created_at, 	eventminute, 	eventhour, 	status, 	assessment_id ) VALUES 	( 		(SELECT COALESCE(max(id)+1,1) FROM trainer_assessment), 		"+trainer_id+", 		now(), 		'10', 		0, 		'SCHEDULED', 		'10578' 	);";
+
+
+    			 System.err.println(sqqql);
+	    		 db.executeUpdate(sqqql);
+    			 
+    			 
     		 }
     		 
             if(!teaching_address.equalsIgnoreCase("")){
@@ -200,7 +210,7 @@ public class TrainerSignUpFormController extends IStarBaseServelet {
     				
     				for(Object obja:obj.keySet()){
     					System.out.println(obja+"--->"+obj.get(obja).toString());
-    					boolean t8am_9pm = false;
+    					boolean t8am_9am = false;
     					boolean t9am_10am= false;
     					boolean t10am_11am= false;
     					boolean t11am_12pm= false;
@@ -220,7 +230,7 @@ public class TrainerSignUpFormController extends IStarBaseServelet {
     					 System.err.println("day>>>> "+day+" time>>>>> "+time);
     				    
     					 if(time.equalsIgnoreCase("8:00 AM-9:00 AM")){
-							t8am_9pm = true;
+							t8am_9am = true;
 						}
 						if(time.equalsIgnoreCase("9:00 AM-10:00 AM")){
 							t9am_10am= true;
@@ -253,7 +263,7 @@ public class TrainerSignUpFormController extends IStarBaseServelet {
     					 
     					} 
 						
-    					String ssql = "INSERT INTO trainer_available_time_sloat ( 	ID, 	trainer_id, 	DAY, 	t8am_9pm, 	t9am_10am, 	t10am_11am, 	t11am_12pm, 	t12pm_1pm, 	t1pm_2pm, 	t2pm_3pm, 	t3pm_4pm, 	t4pm_5pm, 	t5pm_6pm ) VALUES 	( 		(SELECT COALESCE(max(id)+1,1) FROM trainer_available_time_sloat), 	  "+trainer_id+", 		'"+day+"', 		'"+t8am_9pm+"', 		'"+t9am_10am+"', 		'"+t10am_11am+"', 		'"+t11am_12pm+"', 		'"+t12pm_1pm+"', 		'"+t1pm_2pm+"', 		'"+t2pm_3pm+"', 		'"+t3pm_4pm+"', 		'"+t4pm_5pm+"', 		'"+t5pm_6pm+"' 	);";
+    					String ssql = "INSERT INTO trainer_available_time_sloat ( 	ID, 	trainer_id, 	DAY, 	t8am_9am, 	t9am_10am, 	t10am_11am, 	t11am_12pm, 	t12pm_1pm, 	t1pm_2pm, 	t2pm_3pm, 	t3pm_4pm, 	t4pm_5pm, 	t5pm_6pm ) VALUES 	( 		(SELECT COALESCE(max(id)+1,1) FROM trainer_available_time_sloat), 	  "+trainer_id+", 		'"+day+"', 		'"+t8am_9am+"', 		'"+t9am_10am+"', 		'"+t10am_11am+"', 		'"+t11am_12pm+"', 		'"+t12pm_1pm+"', 		'"+t1pm_2pm+"', 		'"+t2pm_3pm+"', 		'"+t3pm_4pm+"', 		'"+t4pm_5pm+"', 		'"+t5pm_6pm+"' 	);";
 
     					
     					System.err.println(ssql);
@@ -264,12 +274,12 @@ public class TrainerSignUpFormController extends IStarBaseServelet {
     			} catch (Exception e1) {
     				
     				e1.printStackTrace();
+    				response.sendRedirect("../master_trainer/index.jsp");
     			}
            	
 			 
 		 }
 		 
-		// response.getWriter().append("/index.jsp");
 		 response.sendRedirect("../master_trainer/index.jsp");
 	}
 

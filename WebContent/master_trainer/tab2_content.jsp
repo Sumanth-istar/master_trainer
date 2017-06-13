@@ -54,11 +54,13 @@ if(request.getParameter("s_id")!=null){
                 
                 
                 <div class="col-lg-12">
+                <form class="form-horizontal" action="<%=baseURL%>master_mrainerl4_interview"
+							method="post">
                 <label style="margin-right: 100px;color: red;" class=""> Check if the L4 interview is over <input
 									type="checkbox" value=" id="is_checked_l4_interview_status" required></label>
 									
 									<button class="btn btn-sm btn-primary pull-right m-t-n-xs"
-									id="submit_details" type="button">
+									id="submit_details" type="submit">
 									<strong>Submit</strong>
 								</button>
 								
@@ -74,6 +76,7 @@ if(request.getParameter("s_id")!=null){
                             <li class=""><a data-toggle="tab" href="#tab-10">Finance</a></li>
                         </ul>
                         <div class="tab-content">
+                        	
                             <div id="tab-3" class="tab-pane active">
                                 <div class="panel-body">
                                   
@@ -121,8 +124,9 @@ if(request.getParameter("s_id")!=null){
                                     <jsp:include page="/master_trainer/partials/finance.jsp" />  
                                 </div>
                             </div>
+                           
                         </div>
-
+ </form>
 
                     </div>
                 </div>
@@ -148,6 +152,7 @@ if(request.getParameter("s_id")!=null){
 </body>
 <!-- Mainly scripts -->
 <script src="<%=baseURL %>js/jquery-2.1.1.js"></script>
+<script src="<%=baseURL %>js/plugins/dataTables/datatables.min.js"></script>
 
 
 <script src="<%=baseURL %>js/bootstrap.min.js"></script>
@@ -159,7 +164,25 @@ if(request.getParameter("s_id")!=null){
 
 $(document).ready(function(){
 
+	 $('.dataTables-example').DataTable({
+	        pageLength: 10,
+	        responsive: true,
+	        dom: '<"html5buttons"B>lTfgitp',
+	        buttons: [
+	            {
+	             customize: function (win){
+	                    $(win.document.body).addClass('white-bg');
+	                    $(win.document.body).css('font-size', '10px');
 
+	                    $(win.document.body).find('table')
+	                            .addClass('compact')
+	                            .css('font-size', 'inherit');
+	            }
+	            }
+	        ]
+
+	    });
+	 
 });
 
 

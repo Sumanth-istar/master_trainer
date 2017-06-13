@@ -49,7 +49,7 @@
 </head>
 <body class="top-navigation" id="">
 	<div id="wrapper">
-		<jsp:include page="/navbar.jsp"><jsp:param name="logout_btn" value="add" /> </jsp:include>
+		<%-- <jsp:include page="/navbar.jsp"><jsp:param name="logout_btn" value="add" /> </jsp:include> --%>
 		<div id="page-wrapper" class="gray-bg">
 
 			<div class="row wrapper border-bottom white-bg page-heading">
@@ -64,23 +64,14 @@
 
 
 
-						<div class="col-lg-12">
+						<div class="col-lg-12 question_holder">
 
 
 							<%=trainerservice.getAllQuestionForTrainer(assessment_id)%>
 							
 						</div>
 
-
-
-
-
-
-
-
-
-
-					</div>
+                </div>
 				</div>
 			</div>
 			<div style="display:none" class="row wrapper border-bottom white-bg page-heading submit_button_div">
@@ -115,7 +106,50 @@
 	<script src="<%=baseURL %>js/plugins/rickshaw/vendor/d3.v3.js"></script>
 	<script src="<%=baseURL %>js/plugins/rickshaw/rickshaw.min.js"></script>
 
+<script>
+(function (global) {
 
+	if(typeof (global) === "undefined")
+	{
+		throw new Error("window is undefined");
+	}
+
+    var _hash = "!";
+    var noBackPlease = function () {
+        global.location.href += "#";
+
+		// making sure we have the fruit available for juice....
+		// 50 milliseconds for just once do not cost much (^__^)
+        global.setTimeout(function () {
+            global.location.href += "!";
+        }, 50);
+    };
+	
+	// Earlier we had setInerval here....
+    global.onhashchange = function () {
+        if (global.location.hash !== _hash) {
+            global.location.hash = _hash;
+        }
+    };
+
+    global.onload = function () {
+        
+		noBackPlease();
+
+		// disables backspace on page except on input fields and textarea..
+		document.body.onkeydown = function (e) {
+            var elm = e.target.nodeName.toLowerCase();
+            if (e.which === 8 && (elm !== 'input' && elm  !== 'textarea')) {
+                e.preventDefault();
+            }
+            // stopping event bubbling up the DOM tree..
+            e.stopPropagation();
+        };
+		
+    };
+
+})(window);
+</script>
 
 	<script>
 		var AssessmentTimer;
@@ -124,6 +158,8 @@
 		$(document).ready(function() {
 			
 			
+		       
+		       
 			$('.animation_select').click(function() {
 				$('#animation_box').removeAttr('class').attr('class', '');
 				var animation = $(this).attr("data-animation");
@@ -184,6 +220,7 @@
 
 			AssessmentTimer = setTimeout(function() {
 				if ($('.question_' + nextId).html() == undefined) {
+					$('.question_holder').css("cssText", "display:none");
 					$('.nex_button_div').css("cssText", "display:none");
 					$('.submit_button_div').css("cssText", "display:block");
 					clearTimeout(AssessmentTimer);
@@ -210,6 +247,7 @@
 		function updateQuestionTimer(question, timeInmilliSec) {
 			
 			if(questionTimer!=undefined){
+				
 				clearInterval(questionTimer);
 			}
 			questionTimer=setInterval(function() {
@@ -219,6 +257,9 @@
 				
 				if(time!=0){
 				updateQuestionTimer(question, time);
+				}else{
+					$('.nex_button_div').css("cssText", "display:none");
+					$('.submit_button_div').css("cssText", "display:block");
 				}
 
 			}, 1000);

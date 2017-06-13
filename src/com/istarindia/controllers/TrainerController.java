@@ -85,9 +85,26 @@ public class TrainerController extends IStarBaseServelet {
 			int trainer_id = Integer.parseInt( request.getParameter("trainer_id"));
 			
 			
-			String sql ="UPDATE PUBLIC .trainer_assessment SET status = 'ATTENDED' WHERE 	trainer_id = "+trainer_id+" AND assessment_id ="+assessment_id;
+			String sql ="UPDATE trainer_assessment SET status = 'ATTENDED' WHERE 	trainer_id = "+trainer_id+" AND assessment_id ="+assessment_id;
 			 System.err.println(sql);
   			 db.executeUpdate(sql);
+  			 
+  			String  ssqqll = "SELECT 	CAST (COUNT (*) AS INTEGER) as tot_ass, CAST (count(*) filter (where trainer_assessment.status ='ATTENDED') AS INTEGER) as attended_ass FROM 	trainer_assessment WHERE 	trainer_id ="+trainer_id;
+  			
+  			 System.err.println(ssqqll);
+  			List<HashMap<String, Object>> data3 = db.executeQuery(ssqqll);
+
+  			if (data3.size() > 0) {
+
+  				int tot_ass = (int) data3.get(0).get("tot_ass");
+  				int attended_ass = (int) data3.get(0).get("attended_ass");
+  				if (tot_ass == attended_ass) {
+  					
+  					String sqqll = "UPDATE student SET  signup_status = 'ASSESSMENT_COMPLETED' WHERE 	(ID = "+trainer_id+");";
+  					 System.err.println(sqqll);
+  		  			 db.executeUpdate(sqqll);
+  				}
+  			}
 			
 		}else{
 			

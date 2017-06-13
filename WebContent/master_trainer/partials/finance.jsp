@@ -14,7 +14,7 @@
 
 							</div> -->
 							<div class="ibox-content">
-
+<div class="col-lg-6">
 								<div class="table-responsive">
 									<div class="table-responsive">
 									<table
@@ -23,6 +23,216 @@
 											<tr>
 											    <th>Soft Skills</th>
 												<th>Rating (1- 5)</th>
+												
+											</tr>
+										</thead>
+										<tbody>
+									
+
+											<tr>
+												<td>Grooming</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_1">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												
+												</td>
+												
+												
+											</tr>
+										<tr>
+												<td>Professionally appropriate dressing</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_2">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												
+												</td>
+												
+											</tr>
+											<tr>
+												<td>Voice & Modulation Quality</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_3">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												
+												</td>
+												
+												
+											</tr>
+											<tr>
+												<td>Diction & Clarity of Speech</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_4">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												
+												</td>
+												
+												
+											</tr>
+											<tr>
+												<td>Eye Contact</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_5">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												
+												</td>
+												
+												
+											</tr>
+											<tr>
+												<td>Body Posture</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_6">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												
+												</td>
+												
+												
+											</tr>
+											<tr>
+												<td>Speech Defects (Stutter/ Stammer)</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_7">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												</td>
+												
+												
+											</tr>
+											<tr>
+												<td>Mother Tongue Influence (MTI)</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_8">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												
+												</td>
+												
+												
+											</tr>
+											<tr>
+												<td>Circulates in a class / F2F interaction</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_9">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												</td>
+												
+												
+											</tr>
+											<tr>
+												<td>Directly engages the listener by name while asking questions/addressing doubts</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_10">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												
+												</td>
+											
+												
+											</tr>
+											<tr>
+												<td>Is not defensive on being challenged / welcomes questions</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_11">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												</td>
+												
+												
+											</tr>
+											<tr>
+												<td>Seeks student feedback on understanding and comfort</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_12">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												</td>
+												
+												
+											</tr>
+											<tr>
+												<td>Work experience (company quality)</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_13">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												</td>
+												
+												
+											</tr>
+											<tr>
+												<td>Work Ex (experience quality)</td>
+												<td>
+												<select class="form-control m-b" required name="f_skill_14">
+											         <option value="1">1</option>
+											         <option value="2">2</option>
+											         <option value="3">3</option>
+											         <option value="4">4</option>
+											          <option value="5">5</option></select>
+												</td>
+												
+												
+											</tr>
+										
+
+
+										</tbody>
+									</table>
+								</div>
+								</div></div>
+								<div class="col-lg-6">
+								<div class="table-responsive">
+									<div class="table-responsive">
+									<table
+										class="table table-striped table-bordered table-hover dataTables-example">
+										<thead>
+											<tr>
+											    
 												<th>Quiz the candidate on these topics:</th>
 												<th>Rating (1- 5)</th>
 												
@@ -33,19 +243,10 @@
 									
 
 											<tr>
-												<td>Grooming</td>
-												<td>
-												<select class="form-control m-b" required name="skill_1">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
 												
-												</td>
 												<td>Risk & volatility</td>
 												<td>
-												<select class="form-control m-b" required name="quize_1">
+												<select class="form-control m-b" required name="f_quize_1">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -55,19 +256,10 @@
 												
 											</tr>
 										<tr>
-												<td>Professionally appropriate dressing</td>
-												<td>
-												<select class="form-control m-b" required name="skill_2">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
 												
-												</td>
 												<td>Risk = standard deviation</td>
 												<td>
-												<select class="form-control m-b" required name="quize_2">
+												<select class="form-control m-b" required name="f_quize_2">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -77,19 +269,10 @@
 												
 											</tr>
 											<tr>
-												<td>Voice & Modulation Quality</td>
-												<td>
-												<select class="form-control m-b" required name="skill_3">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
 												
-												</td>
 												<td>Equity concept</td>
 												<td>
-												<select class="form-control m-b" required name="quize_3">
+												<select class="form-control m-b" required name="f_quize_3">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -99,19 +282,10 @@
 												
 											</tr>
 											<tr>
-												<td>Diction & Clarity of Speech</td>
-												<td>
-												<select class="form-control m-b" required name="skill_4">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
 												
-												</td>
 												<td>Debt concept</td>
 												<td>
-												<select class="form-control m-b" required name="quize_4">
+												<select class="form-control m-b" required name="f_quize_4">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -121,19 +295,10 @@
 												
 											</tr>
 											<tr>
-												<td>Eye Contact</td>
-												<td>
-												<select class="form-control m-b" required name="skill_5">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
 												
-												</td>
 												<td>Appropriate use of debt vs equity</td>
 												<td>
-												<select class="form-control m-b" required name="quize_5">
+												<select class="form-control m-b" required name="f_quize_5">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -143,19 +308,10 @@
 												
 											</tr>
 											<tr>
-												<td>Body Posture</td>
-												<td>
-												<select class="form-control m-b" required name="skill_6">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
 												
-												</td>
 												<td>Types of equity</td>
 												<td>
-												<select class="form-control m-b" required name="quize_6">
+												<select class="form-control m-b" required name="f_quize_6">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -165,18 +321,10 @@
 												
 											</tr>
 											<tr>
-												<td>Speech Defects (Stutter/ Stammer)</td>
-												<td>
-												<select class="form-control m-b" required name="skill_7">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
-												</td>
+												
 												<td>Types of debt</td>
 												<td>
-												<select class="form-control m-b" required name="quize_7">
+												<select class="form-control m-b" required name="f_quize_7">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -186,19 +334,10 @@
 												
 											</tr>
 											<tr>
-												<td>Mother Tongue Influence (MTI)</td>
-												<td>
-												<select class="form-control m-b" required name="skill_8">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
 												
-												</td>
 												<td>Risk rating agencies and rating awareness</td>
 												<td>
-												<select class="form-control m-b" required name="quize_8">
+												<select class="form-control m-b" required name="f_quize_8">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -208,18 +347,10 @@
 												
 											</tr>
 											<tr>
-												<td>Circulates in a class / F2F interaction</td>
-												<td>
-												<select class="form-control m-b" required name="skill_9">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
-												</td>
+												
 												<td>Types of risk and relationship to valuation</td>
 												<td>
-												<select class="form-control m-b" required name="quize_10">
+												<select class="form-control m-b" required name="f_quize_10">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -229,19 +360,10 @@
 												
 											</tr>
 											<tr>
-												<td>Directly engages the listener by name while asking questions/addressing doubts</td>
-												<td>
-												<select class="form-control m-b" required name="skill_10">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
 												
-												</td>
 												<td>Understands DCF concept, WACC concept</td>
 												<td>
-												<select class="form-control m-b" required name="quize_10">
+												<select class="form-control m-b" required name="f_quize_10">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -251,18 +373,10 @@
 												
 											</tr>
 											<tr>
-												<td>Is not defensive on being challenged / welcomes questions</td>
-												<td>
-												<select class="form-control m-b" required name="skill_11">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
-												</td>
+												
 												<td>Cash flow concepts</td>
 												<td>
-												<select class="form-control m-b" required name="quize_11">
+												<select class="form-control m-b" required name="f_quize_11">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -272,18 +386,10 @@
 												
 											</tr>
 											<tr>
-												<td>Seeks student feedback on understanding and comfort</td>
-												<td>
-												<select class="form-control m-b" required name="skill_12">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
-												</td>
+												
 												<td>Knows some relative valuation metrics (PE / PEG etc)</td>
 												<td>
-												<select class="form-control m-b" required name="quize_12">
+												<select class="form-control m-b" required name="f_quize_12">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -293,18 +399,10 @@
 												
 											</tr>
 											<tr>
-												<td>Work experience (company quality)</td>
-												<td>
-												<select class="form-control m-b" required name="skill_13">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
-												</td>
+												
 												<td>Can read a financial newspaper markets page</td>
 												<td>
-												<select class="form-control m-b" required name="quize_13">
+												<select class="form-control m-b" required name="f_quize_13">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -314,18 +412,10 @@
 												
 											</tr>
 											<tr>
-												<td>Work Ex (experience quality)</td>
-												<td>
-												<select class="form-control m-b" required name="skill_14">
-											         <option value="1">1</option>
-											         <option value="2">2</option>
-											         <option value="3">3</option>
-											         <option value="4">4</option>
-											          <option value="5">5</option></select>
-												</td>
+												
 												<td>Futures/forward concept</td>
 												<td>
-												<select class="form-control m-b" required name="quize_14">
+												<select class="form-control m-b" required name="f_quize_14">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -335,11 +425,10 @@
 												
 											</tr>
 											<tr>
-												<td></td>
-												<td></td>
+												
 												<td>Futures/forward concept</td>
 												<td>
-												<select class="form-control m-b" required name="quize_14">
+												<select class="form-control m-b" required name="f_quize_14">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -349,11 +438,10 @@
 												
 											</tr>
 											<tr>
-												<td></td>
-												<td></td>
+												
 												<td>Call option</td>
 												<td>
-												<select class="form-control m-b" required name="quize_15">
+												<select class="form-control m-b" required name="f_quize_15">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -363,11 +451,10 @@
 												
 											</tr>
 											<tr>
-												<td></td>
-												<td></td>
+												
 												<td>Put Option</td>
 												<td>
-												<select class="form-control m-b" required name="quize_16">
+												<select class="form-control m-b" required name="f_quize_16">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -377,11 +464,10 @@
 												
 											</tr>
 											<tr>
-												<td></td>
-												<td></td>
+												
 												<td>Payoff Diagrams and derivative structuring for defined payoff </td>
 												<td>
-												<select class="form-control m-b" required name="quize_17">
+												<select class="form-control m-b" required name="f_quize_17">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -391,11 +477,10 @@
 												
 											</tr>
 											<tr>
-												<td></td>
-												<td></td>
+												
 												<td>Options and volatility</td>
 												<td>
-												<select class="form-control m-b" required name="quize_18">
+												<select class="form-control m-b" required name="f_quize_18">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -405,11 +490,10 @@
 												
 											</tr>
 											<tr>
-												<td></td>
-												<td></td>
+												
 												<td>Value at Risk</td>
 												<td>
-												<select class="form-control m-b" required name="quize_19">
+												<select class="form-control m-b" required name="f_quize_19">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -423,7 +507,7 @@
 										</tbody>
 									</table>
 								</div>
-								</div>
+								</div></div>
 								<div>
 								
 								<p>Q: What is the difference between risk and uncertainty?</p>

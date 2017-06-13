@@ -13,16 +13,30 @@
 			+ request.getContextPath() + "/"; 
 %>
 <%
-String trainer_id ="0";
+DBUTILS db = new DBUTILS();
+int trainer_id =0;
 if(request.getSession().getAttribute("trainerID")!=null){
-	 trainer_id = request.getSession().getAttribute("trainerID").toString();
+	 trainer_id = Integer.parseInt(request.getSession().getAttribute("trainerID").toString());
+	 
+	
+	 
 
 }
 if(request.getParameter("trainer_id")!=null){
 	
-	trainer_id = request.getParameter("trainer_id");
+	trainer_id = Integer.parseInt(request.getParameter("trainer_id"));
+	
+	
+
+	
 }
 System.out.print(trainer_id); 
+
+
+
+
+
+
 
 TrainerService trainerservice =  new TrainerService();
 %>
@@ -56,9 +70,9 @@ TrainerService trainerservice =  new TrainerService();
 					
 				</div><div class="col-lg-2">
 				<div class="feed-element" style="margin-right: 20px; margin-top: 5px;">
-                                        <a href="<%=baseURL %>trainer/trainer_profile.jsp?trainer_id=<%=trainer_id %>" class="pull-right">
+                                         <a href="<%=baseURL %>trainer/edit_trainer_profile.jsp?trainer_id=<%=trainer_id %>" class="pull-right">
                                             <img alt="image" class="img-circle" src="<%=baseURL %>assets/images/t_profile.png">
-                                        </a>
+                                        </a> 
                                         
                                     </div>
 				</div>

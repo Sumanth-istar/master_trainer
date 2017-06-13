@@ -48,7 +48,7 @@ public class LoginController extends HttpServlet {
 				IstarUserDAO dao = new IstarUserDAO();
 				IstarUser user = dao.findByEmail(request.getParameter("email")).get(0);
 				if (user.getPassword().equalsIgnoreCase(request.getParameter("password"))) {
-					// request.getSession().setMaxInactiveInterval(2000);
+					 request.getSession().setMaxInactiveInterval(7200000);
 					//request.getSession().setAttribute("user", user);
 
 					System.out.println("User logged in. ID -> " + user.getId());

@@ -114,7 +114,7 @@ if(request.getParameter("s_id")!=null){
 </body>
 <!-- Mainly scripts -->
 <script src="<%=baseURL %>js/jquery-2.1.1.js"></script>
-
+<script src="<%=baseURL %>js/plugins/dataTables/datatables.min.js"></script>
 
 <script src="<%=baseURL %>js/bootstrap.min.js"></script>
 <!-- Chosen -->

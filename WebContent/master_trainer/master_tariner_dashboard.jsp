@@ -86,7 +86,7 @@ if(request.getParameter("trainerID")!=null){
 
 											<tr>
 												<td><a
-													href="/master_trainer/trainer/trainer_profile.jsp?trainer_id=<%=row.get("sid") %>"
+													href="/master_trainer/master_trainer/trainer_profile.jsp?trainer_id=<%=row.get("sid") %>"
 													target="_blank"><%=row.get("sid") %></a></td>
 												<td><%=row.get("semail") %></td>
 												<td><%=row.get("sname") %></td>

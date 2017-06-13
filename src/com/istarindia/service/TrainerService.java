@@ -10,7 +10,7 @@ public class TrainerService {
 
 	DBUTILS db = new DBUTILS();
 
-	public StringBuffer getAllAssessmentForTrainer(String trainerID) {
+	public StringBuffer getAllAssessmentForTrainer(int trainerID) {
 		
 		String  ssqqll = "SELECT 	CAST (COUNT (*) AS INTEGER) as tot_ass, CAST (count(*) filter (where trainer_assessment.status ='ATTENDED') AS INTEGER) as attended_ass FROM 	trainer_assessment WHERE 	trainer_id ="+trainerID;
 		List<HashMap<String, Object>> data3 = db.executeQuery(ssqqll);
@@ -29,7 +29,7 @@ public class TrainerService {
 		
 
 		String trainer_skills_sql = "SELECT assessment.id,assessment.assessmentdurationminutes as min,COALESCE(assessment.assessmentdurationhours,0)as hrs,assessment.assessmenttitle FROM trainer_assessment,assessment WHERE assessment.id = trainer_assessment.assessment_id AND trainer_id ="
-				+ Integer.parseInt(trainerID);
+				+ trainerID;
 		StringBuffer out = new StringBuffer();
 
 		List<HashMap<String, Object>> data = db.executeQuery(trainer_skills_sql);
@@ -191,8 +191,24 @@ public class TrainerService {
 
 	public List<HashMap<String, Object>> getAllTrainerAvaTime(int trainerID) {
 
-		String sql = "SELECT 	DAY, 	t8am_9pm, 	t9am_10am, 	t10am_11am, 	t11am_12pm, 	t12pm_1pm, 	t1pm_2pm, 	t2pm_3pm, 	t3pm_4pm, 	t4pm_5pm, 	t5pm_6pm FROM 	trainer_available_time_sloat WHERE 	trainer_id ="
+		String sql = "SELECT 	DAY, 	t8am_9am, 	t9am_10am, 	t10am_11am, 	t11am_12pm, 	t12pm_1pm, 	t1pm_2pm, 	t2pm_3pm, 	t3pm_4pm, 	t4pm_5pm, 	t5pm_6pm FROM 	trainer_available_time_sloat WHERE 	trainer_id ="
 				+ trainerID;
+		List<HashMap<String, Object>> data2 = db.executeQuery(sql);
+		if (data2.size() > 0) {
+
+			for (HashMap<String, Object> row2 : data2) {
+
+			}
+
+		}
+
+		return data2;
+	}
+	public List<HashMap<String, Object>> getAllTrainerAvaTimeforedit(int trainerID) {
+
+		String sql = "SELECT 	DAY, 	cast(t8am_9am as varchar) as t8am_9am, 	cast(t9am_10am as varchar) as t9am_10am, 	cast(t10am_11am as varchar) as t10am_11am, 	cast(t11am_12pm as varchar) as t11am_12pm, 	cast(t12pm_1pm as varchar) as t12pm_1pm, 	cast(t1pm_2pm as varchar), 	cast(t2pm_3pm as varchar) as t2pm_3pm, 	cast(t3pm_4pm as varchar) as t3pm_4pm, 	cast(t4pm_5pm as varchar) as t4pm_5pm, 	cast(t5pm_6pm as varchar) as t5pm_6pm FROM 	trainer_available_time_sloat WHERE 	trainer_id ="
+				+ trainerID;
+		System.err.println(sql);
 		List<HashMap<String, Object>> data2 = db.executeQuery(sql);
 		if (data2.size() > 0) {
 

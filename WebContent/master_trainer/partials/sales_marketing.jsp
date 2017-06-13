@@ -34,7 +34,7 @@
 											<tr>
 												<td>Grooming</td>
 												<td>
-												<select class="form-control m-b" required name="skill_1">
+												<select class="form-control m-b" required name="sm_skill_1">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -43,7 +43,7 @@
 											          </td>
 												<td>Strategic Planning</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_1">
+												<select class="form-control m-b" required name="sm_quiz_1">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -55,7 +55,7 @@
 										<tr>
 												<td>Professionally appropriate dressing</td>
 												<td>
-												<select class="form-control m-b" required name="skill_2">
+												<select class="form-control m-b" required name="sm_skill_2">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -64,7 +64,7 @@
 												</td>
 												<td>-Porter's 5 forces</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_2">
+												<select class="form-control m-b" required name="sm_quiz_2">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -76,7 +76,7 @@
 											<tr>
 												<td>Voice & Modulation Quality</td>
 												<td>
-												<select class="form-control m-b" required name="skill_3">
+												<select class="form-control m-b" required name="sm_skill_3">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -85,7 +85,7 @@
 												</td>
 												<td>-GE nine cell matrix</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_3">
+												<select class="form-control m-b" required name="sm_quiz_3">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -97,7 +97,7 @@
 											<tr>
 												<td>Diction & Clarity of Speech</td>
 												<td>
-												<select class="form-control m-b" required name="skill_4">
+												<select class="form-control m-b" required name="sm_skill_4">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -106,7 +106,7 @@
 												</td>
 												<td>-BCG matrix</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_4">
+												<select class="form-control m-b" required name="sm_quiz_4">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -118,7 +118,7 @@
 											<tr>
 												<td>Eye Contact</td>
 												<td>
-												<select class="form-control m-b" required name="skill_5">
+												<select class="form-control m-b" required name="sm_skill_5">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -127,7 +127,7 @@
 												</td>
 												<td>-SWOT analysis</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_5">
+												<select class="form-control m-b" required name="sm_quiz_5">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -139,7 +139,7 @@
 											<tr>
 												<td>Body Posture</td>
 												<td>
-												<select class="form-control m-b" required name="skill_6">
+												<select class="form-control m-b" required name="sm_skill_6">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -148,7 +148,7 @@
 												</td>
 												<td>Marketing strategies</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_6">
+												<select class="form-control m-b" required name="sm_quiz_6">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -161,7 +161,7 @@
 											<tr>
 												<td>Speech Defects (Stutter/ Stammer)</td>
 												<td>
-												<select class="form-control m-b" required name="skill_7">
+												<select class="form-control m-b" required name="sm_skill_7">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -170,7 +170,7 @@
 												</td>
 												<td>-PLC</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_7">
+												<select class="form-control m-b" required name="sm_quiz_7">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -182,7 +182,7 @@
 											<tr>
 												<td>Mother Tongue Influence (MTI)</td>
 												<td>
-												<select class="form-control m-b" required name="skill_8">
+												<select class="form-control m-b" required name="sm_skill_8">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -191,7 +191,7 @@
 												</td>
 												<td>Pricing strategies</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_8">
+												<select class="form-control m-b" required name="sm_quiz_8">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -203,7 +203,7 @@
 											<tr>
 												<td>Circulates in a class / F2F interaction</td>
 												<td>
-												<select class="form-control m-b" required name="skill_9">
+												<select class="form-control m-b" required name="sm_skill_9">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -212,7 +212,7 @@
 												</td>
 												<td>Bases for market segmentation</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_9">
+												<select class="form-control m-b" required name="sm_quiz_9">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -224,7 +224,7 @@
 											<tr>
 												<td>Directly engages the listener by name while asking questions/addressing doubts</td>
 												<td>
-												<select class="form-control m-b" required name="skill_10">
+												<select class="form-control m-b" required name="sm_skill_10">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -233,7 +233,7 @@
 												</td>
 												<td>Buyer Behavior</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_10">
+												<select class="form-control m-b" required name="sm_quiz_10">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -246,7 +246,7 @@
 											<tr>
 												<td>Is not defensive on being challenged / welcomes questions</td>
 												<td>
-												<select class="form-control m-b" required name="skill_11">
+												<select class="form-control m-b" required name="sm_skill_11">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -255,7 +255,7 @@
 												</td>
 												<td>- Decision making process</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_11">
+												<select class="form-control m-b" required name="sm_quiz_11">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -267,7 +267,7 @@
 											<tr>
 												<td>Seeks student feedback on understanding and comfort</td>
 												<td>
-												<select class="form-control m-b" required name="skill_12">
+												<select class="form-control m-b" required name="sm_skill_12">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -276,7 +276,7 @@
 												</td>
 												<td>Marketing concepts</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_12">
+												<select class="form-control m-b" required name="sm_quiz_12">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -289,7 +289,7 @@
 											<tr>
 												<td>Work experience (company quality)</td>
 												<td>
-												<select class="form-control m-b" required name="skill_13">
+												<select class="form-control m-b" required name="sm_skill_13">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -298,7 +298,7 @@
 												</td>
 												<td>-Customer lifetime value</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_13">
+												<select class="form-control m-b" required name="sm_quiz_13">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -310,7 +310,7 @@
 											<tr>
 												<td>Work Ex (experience quality)</td>
 												<td>
-												<select class="form-control m-b" required name="skill_14">
+												<select class="form-control m-b" required name="sm_skill_14">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>
@@ -319,7 +319,7 @@
 												</td>
 												<td>Marketing communication mix</td>
 												<td>
-												<select class="form-control m-b" required name="quiz_14">
+												<select class="form-control m-b" required name="sm_quiz_14">
 											         <option value="1">1</option>
 											         <option value="2">2</option>
 											         <option value="3">3</option>

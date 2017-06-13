@@ -30,7 +30,7 @@
 
 	List<HashMap<String, Object>> userData = trainerservice.getAllTrainerDetails(trainer_id);
 	List<HashMap<String, Object>> intrestedCourses = trainerservice.getAllTrainerSessions(trainer_id);
-	List<HashMap<String, Object>> trainerAvaliabledata = trainerservice.getAllTrainerAvaTime(trainer_id);
+	List<HashMap<String, Object>> trainerAvaliabledata = trainerservice.getAllTrainerAvaTimeforedit(trainer_id);
 	List<HashMap<String, Object>> trainerLocationData = trainerservice.getAllTrainerPrefredLocation(trainer_id);
 
 	String f_name = "", l_name = "", gender = "", dob = "", email = "", password = "", mobile = "",
@@ -60,8 +60,8 @@
 		}
 	}
 	
-	String mark_write="<i class='fa fa-check-circle' style='color: green !important;'></i>";
-	
+	String mt8am_9am = "" ,mt9am_10am = "" ,mt10am_11am = "" ,mt11am_12pm ="" ,mt12pm_1pm = "" ,mt1pm_2pm = "" ,mt2pm_3pm = "" ,mt3pm_4pm = "" ,mt4pm_5pm = "" ,mt5pm_6pm = "" ,tt8am_9am = "" ,tt9am_10am = "" ,tt10am_11am = "" ,tt11am_12pm ="" ,tt12pm_1pm = "" ,tt1pm_2pm = "" ,tt2pm_3pm = "" ,tt3pm_4pm = "" ,tt4pm_5pm = "" ,tt5pm_6pm = "" ,wt8am_9am = "" ,wt9am_10am = "" ,wt10am_11am = "" ,wt11am_12pm ="" ,wt12pm_1pm = "" ,wt1pm_2pm = "" ,wt2pm_3pm = "" ,wt3pm_4pm = "" ,wt4pm_5pm = "" ,wt5pm_6pm = "" ,tht8am_9am = "" ,tht9am_10am = "" ,tht10am_11am = "" ,tht11am_12pm ="" ,tht12pm_1pm = "" ,tht1pm_2pm = "" ,tht2pm_3pm = "" ,tht3pm_4pm = "" ,tht4pm_5pm = "" ,tht5pm_6pm = "" ,ft8am_9am = "" ,ft9am_10am = "" ,ft10am_11am = "" ,ft11am_12pm ="" ,ft12pm_1pm = "" ,ft1pm_2pm = "" ,ft2pm_3pm = "" ,ft3pm_4pm = "" ,ft4pm_5pm = "" ,ft5pm_6pm = "" ,st8am_9am = "" ,st9am_10am = "" ,st10am_11am = "" ,st11am_12pm ="" ,st12pm_1pm = "" ,st1pm_2pm = "" ,st2pm_3pm = "" ,st3pm_4pm = "" ,st4pm_5pm = "" ,st5pm_6pm = "";
+	 String checked = "checked";
 	
 	ArrayList<String> markerList=new ArrayList();
 	
@@ -110,13 +110,13 @@
 			<div class="row wrapper border-bottom white-bg page-heading">
 				<div class="col-lg-12">
 					<h2 style="margin-left: 31px;">User Details</h2>
-					<%-- <ol style="margin-left: 31px;" class="breadcrumb">
+					 <ol style="margin-left: 31px;" class="breadcrumb">
 						<li><a
 							href="<%=baseURL%>trainer/trainer_dashboard.jsp?trainer_id=<%=trainer_id%>">Home</a>
 						</li>
 
 						<li class="active"><strong>user profile</strong></li>
-					</ol> --%>
+					</ol> 
 				</div>
 			</div>
 
@@ -129,8 +129,7 @@
 							<div class="ibox float-e-margins">
 
 								<div class="ibox-content">
-									<form class="form-horizontal" action=""
-										method="post">
+									<form class="form-horizontal" action="" method="post">
 										<input type="hidden" id="teaching_address"
 											name="teaching_address" value="">
 										<div class="col-lg-12">
@@ -182,10 +181,10 @@
 										</div>
 										<div class="col-lg-12">
 											<div class="form-group">
-												<label class="col-lg-2 control-label">Email:</label>
+												<label class="col-lg-2 control-label ">Email:</label>
 
 												<div class="col-lg-5">
-													<input type="email" required placeholder="Email" value="<%=email %>"
+													<input type="email" disabled required placeholder="Email" value="<%=email %>"
 														name="email" class="form-control">
 												</div>
 											</div>
@@ -370,11 +369,17 @@
 											</div>
 											
 										</div>
+										<div class="col-lg-12">
+										 
+										 <label class="col-sm-2 control-label">Intrested
+													 Would you like to attach you CV?:</label>
+										 <a href="" id="resume_link">Click here</a>
+                                          <input type="file" id="resume" style="visibility: hidden"></div>
 
 										<div class="col-lg-12">
-											<label class="col-sm-3 control-label">Available Time
+											<label class="col control-label">Available Time
 												Sloat:</label> <input type="hidden" id="avaiable_time"
-												name="avaiable_time" value="">
+												name="avaiable_time" value=""><br/><br/>
 											<table class="table table-bordered" id='mytable'>
 												<thead>
 													<tr>
@@ -394,138 +399,314 @@
 												</thead>
 												<tbody>
 												
+												<tr>
 												<%
 												if(trainerAvaliabledata !=null && trainerAvaliabledata.size()>0){
+													
+													
 												for (HashMap<String, Object> row : trainerAvaliabledata) {
 													
 													
-													if(row.get("day").toString().equalsIgnoreCase("Monday")){
-													%>
-													<tr>
-														<td>Monday</td>
-														
-														<td style="text-align: center;"><%=(boolean)row.get("t8am_9pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t9am_10am")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t10am_11am")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t11am_12pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t12pm_1pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t1pm_2pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t2pm_3pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t3pm_4pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t4pm_5pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t5pm_6pm")?mark_write:""%></td>
-														
-													</tr>
 													
-													<%} if(row.get("day").toString().equalsIgnoreCase("Tuesday")){
+													if(row.get("day").toString().equalsIgnoreCase("Monday")){
+														
+													
+														 mt8am_9am = ((String)row.get("t8am_9am")).equalsIgnoreCase("true")?checked:"";
+														 mt9am_10am = ((String)row.get("t9am_10am")).equalsIgnoreCase("true")?checked:"";
+														 mt10am_11am = ((String)row.get("t10am_11am")).equalsIgnoreCase("true")?checked:"";
+														 mt11am_12pm = ((String)row.get("t11am_12pm")).equalsIgnoreCase("true")?checked:"";
+														 mt12pm_1pm = ((String)row.get("t12pm_1pm")).equalsIgnoreCase("true")?checked:"";
+														 mt1pm_2pm = ((String)row.get("t1pm_2pm")).equalsIgnoreCase("true")?checked:"";
+														 mt2pm_3pm = ((String)row.get("t2pm_3pm")).equalsIgnoreCase("true")?checked:"";
+														 mt3pm_4pm = ((String)row.get("t3pm_4pm")).equalsIgnoreCase("true")?checked:"";
+														 mt4pm_5pm = ((String)row.get("t4pm_5pm")).equalsIgnoreCase("true")?checked:"";
+														 mt5pm_6pm = ((String)row.get("t5pm_6pm")).equalsIgnoreCase("true")?checked:"";
+													
+													}
+													if(row.get("day").toString().equalsIgnoreCase("Tuesday")){
+														
+														 tt8am_9am = ((String)row.get("t8am_9am")).equalsIgnoreCase("true")?checked:"";
+														 tt9am_10am = ((String)row.get("t9am_10am")).equalsIgnoreCase("true")?checked:"";
+														 tt10am_11am = ((String)row.get("t10am_11am")).equalsIgnoreCase("true")?checked:"";
+														 tt11am_12pm = ((String)row.get("t11am_12pm")).equalsIgnoreCase("true")?checked:"";
+														 tt12pm_1pm = ((String)row.get("t12pm_1pm")).equalsIgnoreCase("true")?checked:"";
+														 tt1pm_2pm = ((String)row.get("t1pm_2pm")).equalsIgnoreCase("true")?checked:"";
+														 tt2pm_3pm = ((String)row.get("t2pm_3pm")).equalsIgnoreCase("true")?checked:"";
+														 tt3pm_4pm = ((String)row.get("t3pm_4pm")).equalsIgnoreCase("true")?checked:"";
+														 tt4pm_5pm = ((String)row.get("t4pm_5pm")).equalsIgnoreCase("true")?checked:"";
+														 tt5pm_6pm = ((String)row.get("t5pm_6pm")).equalsIgnoreCase("true")?checked:"";
+													}
+													if(row.get("day").toString().equalsIgnoreCase("Wednesday")){
+														
+														 wt8am_9am = ((String)row.get("t8am_9am")).equalsIgnoreCase("true")?checked:"";
+														 wt9am_10am = ((String)row.get("t9am_10am")).equalsIgnoreCase("true")?checked:"";
+														 wt10am_11am = ((String)row.get("t10am_11am")).equalsIgnoreCase("true")?checked:"";
+														 wt11am_12pm = ((String)row.get("t11am_12pm")).equalsIgnoreCase("true")?checked:"";
+														 wt12pm_1pm = ((String)row.get("t12pm_1pm")).equalsIgnoreCase("true")?checked:"";
+														 wt1pm_2pm = ((String)row.get("t1pm_2pm")).equalsIgnoreCase("true")?checked:"";
+														 wt2pm_3pm = ((String)row.get("t2pm_3pm")).equalsIgnoreCase("true")?checked:"";
+														 wt3pm_4pm = ((String)row.get("t3pm_4pm")).equalsIgnoreCase("true")?checked:"";
+														 wt4pm_5pm = ((String)row.get("t4pm_5pm")).equalsIgnoreCase("true")?checked:"";
+														 wt5pm_6pm = ((String)row.get("t5pm_6pm")).equalsIgnoreCase("true")?checked:"";
+													}
+													if(row.get("day").toString().equalsIgnoreCase("Thrusday")){
+														
+														 tht8am_9am = ((String)row.get("t8am_9am")).equalsIgnoreCase("true")?checked:"";
+														 tht9am_10am = ((String)row.get("t9am_10am")).equalsIgnoreCase("true")?checked:"";
+														 tht10am_11am = ((String)row.get("t10am_11am")).equalsIgnoreCase("true")?checked:"";
+														 tht11am_12pm = ((String)row.get("t11am_12pm")).equalsIgnoreCase("true")?checked:"";
+														 tht12pm_1pm = ((String)row.get("t12pm_1pm")).equalsIgnoreCase("true")?checked:"";
+														 tht1pm_2pm = ((String)row.get("t1pm_2pm")).equalsIgnoreCase("true")?checked:"";
+														 tht2pm_3pm = ((String)row.get("t2pm_3pm")).equalsIgnoreCase("true")?checked:"";
+														 tht3pm_4pm = ((String)row.get("t3pm_4pm")).equalsIgnoreCase("true")?checked:"";
+														 tht4pm_5pm = ((String)row.get("t4pm_5pm")).equalsIgnoreCase("true")?checked:"";
+														 tht5pm_6pm = ((String)row.get("t5pm_6pm")).equalsIgnoreCase("true")?checked:"";
+														
+													}
+													if(row.get("day").toString().equalsIgnoreCase("Friday")){
+														
+														 ft8am_9am = ((String)row.get("t8am_9am")).equalsIgnoreCase("true")?checked:"";
+														 ft9am_10am = ((String)row.get("t9am_10am")).equalsIgnoreCase("true")?checked:"";
+														 ft10am_11am = ((String)row.get("t10am_11am")).equalsIgnoreCase("true")?checked:"";
+														 ft11am_12pm = ((String)row.get("t11am_12pm")).equalsIgnoreCase("true")?checked:"";
+														 ft12pm_1pm = ((String)row.get("t12pm_1pm")).equalsIgnoreCase("true")?checked:"";
+														 ft1pm_2pm = ((String)row.get("t1pm_2pm")).equalsIgnoreCase("true")?checked:"";
+														 ft2pm_3pm = ((String)row.get("t2pm_3pm")).equalsIgnoreCase("true")?checked:"";
+														 ft3pm_4pm = ((String)row.get("t3pm_4pm")).equalsIgnoreCase("true")?checked:"";
+														 ft4pm_5pm = ((String)row.get("t4pm_5pm")).equalsIgnoreCase("true")?checked:"";
+														 ft5pm_6pm = ((String)row.get("t5pm_6pm")).equalsIgnoreCase("true")?checked:"";
+													}
+                                                    if(row.get("day").toString().equalsIgnoreCase("Saturday")){
+														
+                                                    	 st8am_9am = ((String)row.get("t8am_9am")).equalsIgnoreCase("true")?checked:"";
+														 st9am_10am = ((String)row.get("t9am_10am")).equalsIgnoreCase("true")?checked:"";
+														 st10am_11am = ((String)row.get("t10am_11am")).equalsIgnoreCase("true")?checked:"";
+														 st11am_12pm = ((String)row.get("t11am_12pm")).equalsIgnoreCase("true")?checked:"";
+														 st12pm_1pm = ((String)row.get("t12pm_1pm")).equalsIgnoreCase("true")?checked:"";
+														 st1pm_2pm = ((String)row.get("t1pm_2pm")).equalsIgnoreCase("true")?checked:"";
+														 st2pm_3pm = ((String)row.get("t2pm_3pm")).equalsIgnoreCase("true")?checked:"";
+														 st3pm_4pm = ((String)row.get("t3pm_4pm")).equalsIgnoreCase("true")?checked:"";
+														 st4pm_5pm = ((String)row.get("t4pm_5pm")).equalsIgnoreCase("true")?checked:"";
+														 st5pm_6pm = ((String)row.get("t5pm_6pm")).equalsIgnoreCase("true")?checked:"";
+                                                    	
+                                                    	
+													}
+													
+												}
+														
+														
+												}		
 													%>
-													<tr>
-														<td>Tuesday</td>
-														<td style="text-align: center;"><%=(boolean)row.get("t8am_9pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t9am_10am")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t10am_11am")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t11am_12pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t12pm_1pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t1pm_2pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t2pm_3pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t3pm_4pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t4pm_5pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t5pm_6pm")?mark_write:""%></td>
-													</tr>
-													<%} if(row.get("day").toString().equalsIgnoreCase("Wednesday")){
-													%>
-													<tr>
-														<td>Wednesday</td>
-														<td style="text-align: center;"><%=(boolean)row.get("t8am_9pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t9am_10am")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t10am_11am")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t11am_12pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t12pm_1pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t1pm_2pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t2pm_3pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t3pm_4pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t4pm_5pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t5pm_6pm")?mark_write:""%></td>
-													</tr>
-													<%} if(row.get("day").toString().equalsIgnoreCase("Thrusday")){
-													%>
-													<tr>
-														<td>Thrusday</td>
-														<td style="text-align: center;"><%=(boolean)row.get("t8am_9pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t9am_10am")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t10am_11am")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t11am_12pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t12pm_1pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t1pm_2pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t2pm_3pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t3pm_4pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t4pm_5pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t5pm_6pm")?mark_write:""%></td>
+											<td>Monday</td>
+											<td style="text-align: center;"><input <%=mt8am_9am %> class="chechbox"
+												id="monday1" type="checkbox"
+												value="monday#&8:00 AM-9:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=mt9am_10am %> class="chechbox"
+												id="monday2" type="checkbox"
+												value="monday#&9:00 AM-10:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=mt10am_11am %> class="chechbox"
+												id="monday3" type="checkbox"
+												value="monday#&10:00 AM-11:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=mt11am_12pm %> class="chechbox"
+												id="monday4" type="checkbox"
+												value="monday#&11:00 AM-12:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=mt12pm_1pm %> class="chechbox"
+												id="monday5" type="checkbox"
+												value="monday#&12:00 PM-1:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=mt1pm_2pm %> class="chechbox"
+												id="monday6" type="checkbox"
+												value="monday#&1:00 PM-2:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=mt2pm_3pm %> class="chechbox"
+												id="monday7" type="checkbox"
+												value="monday#&2:00 PM-3:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=mt3pm_4pm %> class="chechbox"
+												id="monday8" type="checkbox"
+												value="monday#&3:00 PM-4:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=mt4pm_5pm %>class="chechbox"
+												id="monday9" type="checkbox"
+												value="monday#&4:00 PM-5:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=mt5pm_6pm %> class="chechbox"
+												id="monday10" type="checkbox"
+												value="monday#&5:00 PM-6:00 PM!&"></td>
+										</tr>
+										<tr>
+											<td>Tuesday</td>
+											<td style="text-align: center;"><input <%=tt8am_9am %> class="chechbox"
+												id="tuesday1" type="checkbox"
+												value="tuesday#&8:00 AM-9:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=tt9am_10am %> class="chechbox"
+												id="tuesday2" type="checkbox"
+												value="tuesday#&9:00 AM-10:00 AM!&"></td>
+											<td style="text-align: center;"><input  <%=tt10am_11am %>  class="chechbox"
+												id="tuesday3" type="checkbox"
+												value="tuesday#&10:00 AM-11:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=tt11am_12pm %> class="chechbox"
+												id="tuesday4" type="checkbox"
+												value="tuesday#&11:00 AM-12:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=tt12pm_1pm %> class="chechbox"
+												id="tuesday5" type="checkbox"
+												value="tuesday#&12:00 PM-1:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=tt1pm_2pm %> class="chechbox"
+												id="tuesday6" type="checkbox"
+												value="tuesday#&1:00 PM-2:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=tt2pm_3pm %> class="chechbox"
+												id="tuesday7" type="checkbox"
+												value="tuesday#&2:00 PM-3:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=tt3pm_4pm %> class="chechbox"
+												id="tuesday8" type="checkbox"
+												value="tuesday#&3:00 PM-4:00 PM"></td>
+											<td style="text-align: center;"><input <%=tt4pm_5pm %> class="chechbox"
+												id="tuesday9" type="checkbox"
+												value="tuesday#&4:00 PM-5:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=tt5pm_6pm %> class="chechbox"
+												id="tuesday10" type="checkbox"
+												value="tuesday#&5:00 PM-6:00 PM!&"></td>
+										</tr>
+										<tr>
+											<td>Wednesday</td>
+											<td style="text-align: center;"><input <%=wt8am_9am %> class="chechbox"
+												id="wednesday1" type="checkbox"
+												value="wednesday#&8:00 AM-9:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=wt9am_10am %> class="chechbox"
+												id="wednesday2" type="checkbox"
+												value="wednesday#&9:00 AM-10:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=wt10am_11am %> class="chechbox"
+												id="wednesday3" type="checkbox"
+												value="wednesday#&10:00 AM-11:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=wt11am_12pm %> class="chechbox"
+												id="wednesday4" type="checkbox"
+												value="wednesday#&11:00 AM-12:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=wt12pm_1pm %> class="chechbox"
+												id="wednesday5" type="checkbox"
+												value="wednesday#&12:00 PM-1:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=wt1pm_2pm %> class="chechbox"
+												id="wednesday6" type="checkbox"
+												value="wednesday#&1:00 PM-2:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=wt2pm_3pm %> class="chechbox"
+												id="wednesday7" type="checkbox"
+												value="wednesday#&2:00 PM-3:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=wt3pm_4pm %> class="chechbox"
+												id="wednesday8" type="checkbox"
+												value="wednesday#&3:00 PM-4:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=wt4pm_5pm %> class="chechbox"
+												id="wednesday9" type="checkbox"
+												value="wednesday#&4:00 PM-5:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=wt5pm_6pm %> class="chechbox"
+												id="wednesday10" type="checkbox"
+												value="wednesday#&5:00 PM-6:00 PM!&"></td>
+										</tr>
+										<tr>
+											<td>Thrusday</td>
+											<td style="text-align: center;"><input <%=tht8am_9am %> class="chechbox"
+												id="thrusday1" type="checkbox"
+												value="thrusday#&8:00 AM-9:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=tht9am_10am %> class="chechbox"
+												id="thrusday2" type="checkbox"
+												value="thrusday#&9:00 AM-10:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=tht10am_11am %> class="chechbox"
+												id="thrusday3" type="checkbox"
+												value="thrusday#&10:00 AM-11:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=tht11am_12pm %> class="chechbox"
+												id="thrusday4" type="checkbox"
+												value="thrusday#&11:00 AM-12:00 PM!&"></td>
 
-													</tr>
-													<%} if(row.get("day").toString().equalsIgnoreCase("Friday")){
-													%>
-													<tr>
-														<td>Friday</td>
-														<td style="text-align: center;"><%=(boolean)row.get("t8am_9pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t9am_10am")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t10am_11am")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t11am_12pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t12pm_1pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t1pm_2pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t2pm_3pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t3pm_4pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t4pm_5pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t5pm_6pm")?mark_write:""%></td>
-													</tr>
-													<%} if(row.get("day").toString().equalsIgnoreCase("Saturday")){
-													%>
-													<tr>
-														<td>Saturday</td>
-														<td style="text-align: center;"><%=(boolean)row.get("t8am_9pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t9am_10am")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t10am_11am")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t11am_12pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t12pm_1pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t1pm_2pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t2pm_3pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t3pm_4pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t4pm_5pm")?mark_write:""%></td>
-														<td style="text-align: center;"><%=(boolean)row.get("t5pm_6pm")?mark_write:""%></td>
-													</tr>
-													<%} }
-												} else{
-														
-														%>
-														
-														<tr>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														<td></td>
-														
-														</tr>
-														
-														
-														<%
+											<td style="text-align: center;"><input <%=tht12pm_1pm %> class="chechbox"
+												id="thrusday5" type="checkbox"
+												value="thrusday#&12:00 PM-1:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=tht1pm_2pm %> class="chechbox"
+												id="thrusday6" type="checkbox"
+												value="thrusday#&1:00 PM-2:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=tht2pm_3pm %> class="chechbox"
+												id="thrusday7" type="checkbox"
+												value="thrusday#&2:00 PM-3:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=tht3pm_4pm %> class="chechbox"
+												id="thrusday8" type="checkbox"
+												value="thrusday#&3:00 PM-4:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=tht4pm_5pm %> class="chechbox"
+												id="thrusday9" type="checkbox"
+												value="thrusday#&4:00 PM-5:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=tht5pm_6pm %> class="chechbox"
+												id="thrusday10" type="checkbox"
+												value="thrusday#&5:00 PM-6:00 PM!&"></td>
+
+										</tr>
+										<tr>
+											<td>Friday</td>
+											<td style="text-align: center;"><input <%=ft8am_9am %> class="chechbox"
+												id="friday1" type="checkbox"
+												value="thrusday#&8:00 AM-9:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=ft9am_10am %> class="chechbox"
+												id="friday2" type="checkbox"
+												value="friday#&9:00 AM-10:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=ft10am_11am %> class="chechbox"
+												id="friday3" type="checkbox"
+												value="friday#&10:00 AM-11:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=ft11am_12pm %> class="chechbox"
+												id="friday4" type="checkbox"
+												value="friday#&11:00 AM-12:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=ft12pm_1pm %> class="chechbox"
+												id="friday5" type="checkbox"
+												value="friday#&12:00 PM-1:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=ft1pm_2pm %> class="chechbox"
+												id="friday6" type="checkbox"
+												value="friday#&1:00 PM-2:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=ft2pm_3pm %> class="chechbox"
+												id="friday7" type="checkbox"
+												value="friday#&2:00 PM-3:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=ft3pm_4pm %> class="chechbox"
+												id="friday8" type="checkbox"
+												value="friday#&3:00 PM-4:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=ft4pm_5pm %> class="chechbox"
+												id="friday9" type="checkbox"
+												value="friday#&4:00 PM-5:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=ft5pm_6pm %> class="chechbox"
+												id="friday10" type="checkbox"
+												value="friday#&5:00 PM-6:00 PM!&"></td>
+										</tr>
+										<tr>
+											<td>Saturday</td>
+											<td style="text-align: center;"><input <%=st8am_9am %> class="chechbox"
+												id="saturday1" type="checkbox"
+												value="saturday#&8:00 AM-9:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=st9am_10am %> class="chechbox"
+												id="saturday2" type="checkbox"
+												value="saturday#&9:00 AM-10:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=st10am_11am %> class="chechbox"
+												id="saturday3" type="checkbox"
+												value="saturday#&10:00 AM-11:00 AM!&"></td>
+											<td style="text-align: center;"><input <%=st11am_12pm %> class="chechbox"
+												id="saturday4" type="checkbox"
+												value="saturday#&11:00 AM-12:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=st12pm_1pm %> class="chechbox"
+												id="saturday5" type="checkbox"
+												value="saturday#&12:00 PM-1:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=st1pm_2pm %> class="chechbox"
+												id="saturday6" type="checkbox"
+												value="saturday#&1:00 PM-2:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=st2pm_3pm %> class="chechbox"
+												id="saturday7" type="checkbox"
+												value="saturday#&2:00 PM-3:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=st3pm_4pm %> class="chechbox"
+												id="saturday8" type="checkbox"
+												value="saturday#&3:00 PM-4:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=st4pm_5pm %> class="chechbox"
+												id="saturday9" type="checkbox"
+												value="saturday#&4:00 PM-5:00 PM!&"></td>
+											<td style="text-align: center;"><input <%=st5pm_6pm %> class="chechbox"
+												id="saturday10" type="checkbox"
+												value="saturday#&5:00 PM-6:00 PM!&"></td>
+										</tr>
 												
-														
-													}%>
+												
+													
 												</tbody>
 											</table>
 										</div>
 
 										<div class="form-group">
 											<div class="col-lg-offset-2 col-lg-10">
-												<!-- <button class="btn btn-sm btn-primary m-t-n-xs pull-right"
-													type="submit">Sign in</button> -->
+												<!--  <button class="btn btn-sm btn-primary m-t-n-xs pull-right"
+													type="submit">Save Changes</button>  -->
 											</div>
 										</div>
 									</form>
@@ -570,12 +751,27 @@
 
 <script type="text/javascript">
 	var map = {};
-
+	var myfile="";
 	$(document)
 			.ready(
 					function() {
 						
 						
+
+						$('#resume_link').click(function( e ) {
+						    e.preventDefault();
+						    $('#resume').trigger('click');
+						});
+
+						$('#resume').on( 'change', function() {
+						   myfile= $( this ).val();
+						   var ext = myfile.split('.').pop();
+						   if(ext=="pdf" || ext=="docx" || ext=="doc"){
+						       alert(ext);
+						   } else{
+						       alert(ext);
+						   }
+						});
 						
 						
 						$( ".add_course" ).click(function() {
