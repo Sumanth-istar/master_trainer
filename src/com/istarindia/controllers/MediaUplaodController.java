@@ -20,6 +20,8 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.istarindia.apps.dao.DBUTILS;
+
 @WebServlet("/media_uplaod")
 public class MediaUplaodController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -45,7 +47,7 @@ public class MediaUplaodController extends HttpServlet {
 				throw new FileNotFoundException("property file '" + propertyFileName + "' not found in the classpath");
 			}
 			fileUploadPath = properties.getProperty("mediaPath");
-			fileUrl = properties.getProperty("mediaPath");
+			//fileUrl = "resume_url/";
 		} catch (Exception e) {
 			//fileUploadPath = "/var/www/html/";
 			e.printStackTrace();
@@ -60,6 +62,9 @@ public class MediaUplaodController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		DBUTILS db = new DBUTILS();
+		String image_canvas1 = "";
+		String triner_id = "";
 		if (!ServletFileUpload.isMultipartContent(request)) {
 			throw new IllegalArgumentException(
 					"Request is not multipart, please 'multipart/form-data' enctype for your form.");
@@ -75,9 +80,9 @@ public class MediaUplaodController extends HttpServlet {
 		}
 
 		for (FileItem item : items) {
-
+			
 			if (!item.isFormField()) {
-				String image_canvas1 = "";
+				
 				System.out.println("item name --" + item.getFieldName());
 				// System.out.println(item.getString());
 				String fileExtension = "";
@@ -100,7 +105,11 @@ public class MediaUplaodController extends HttpServlet {
 				} else if (item.getName().toString().toLowerCase().endsWith(".docs")) {
 					fileExtension = ".docs";
 					is_image = true;
+				} else if (item.getName().toString().toLowerCase().endsWith(".docx")) {
+					fileExtension = ".docx";
+					is_image = true;
 				}
+				
 				
 				if (!fileExtension.trim().isEmpty()) {
 					System.out.println("The file is an Image or pfd");
@@ -108,12 +117,22 @@ public class MediaUplaodController extends HttpServlet {
 					if (is_image) {
 						image_canvas1 = uploadPersonalImage(item, fileExtension);
 						System.out.println(image_canvas1);
+						
+						
 					}
 				}
+			}else if (item.getFieldName().equalsIgnoreCase("triner_id")) {
+				triner_id = item.getString();
+				System.out.println(triner_id);
 			}
+			
+			
 		}
-		
-		
+		if(!triner_id.equalsIgnoreCase("") && !image_canvas1.equalsIgnoreCase("")){
+		String sql = "UPDATE student_profile_data SET  resume_url = '"+image_canvas1+"' WHERE student_id = '"+triner_id+"';";
+		System.out.println(sql);
+		 db.executeUpdate(sql);
+		}
 		
 		
 	}
@@ -139,7 +158,7 @@ public class MediaUplaodController extends HttpServlet {
 		String imageURL = "";
 		try {
 			item.write(imageFile);
-			imageURL = fileUrl+"video/" + innerDirectory + uuidName + fileExtension;
+			imageURL = "video/" + innerDirectory + uuidName + fileExtension;
 			System.out.println("Absolute Path id: " + imageFile.getAbsoluteFile());
 		} catch (Exception e) {
 			e.printStackTrace();

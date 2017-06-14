@@ -9,11 +9,15 @@ public class MAIN {
 	public static void main(String[] args) {
 		
 		
+		String resume_name="";
+		String str ="video/resume_url/ae1b275e-d0b5-4a90-b46a-f2ae53a37d83.pdf";
 		
-		IstarUserDAO dao = new IstarUserDAO();
-		IstarUser user = (IstarUser) dao.findByUserType("ISTAR_COORDINATOR");
+		String[] parts = str.split("/");
+		String part1 = parts[0]; // 004
+		String part2 = parts[1];
+		System.err.println( parts[2]);
 		
-		System.out.println(user.getEmail());
+	
 		
 	}
 

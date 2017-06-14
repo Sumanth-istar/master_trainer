@@ -92,6 +92,7 @@ if(request.getParameter("s_id")!=null){
 
 									<label>Trainer Skill</label>
 									<div>
+									<input type="hidden" id ="courseIDS" value="">
 										<select data-placeholder="Choose a Courses..." required
 											class="course_list chosen-select" multiple
 											style="width: 350px;" tabindex="4">
@@ -185,6 +186,12 @@ if(request.getParameter("s_id")!=null){
 
 $(document).ready(function(){
 	 $('.chosen-select').chosen({width: "100%"});
+	 
+	 $( ".course_list" ).change(function() {
+		// this.val();
+		console.log("-->"+$(this).val());
+		  $('#courseIDS').val($(this).val());
+		});
 	
 	 $('#is_checked_trainer').change(function(){ 
 		 
@@ -209,7 +216,8 @@ $(document).ready(function(){
 		 console.log("");
 		 
 		 var comment = $('#comment').val();
-		 var courseid =$("option:selected").map(function(){ return this.value }).get().join(", ");
+		// var courseid =$("option:selected").map(function(){ return this.value }).get().join(", ");
+		 var courseid = $('#courseIDS').val();
 		 var is_tariner_selected = $('#is_checked_trainer').val();
 		 var interview_status = $('#is_checked_interview_status').val();
 		 

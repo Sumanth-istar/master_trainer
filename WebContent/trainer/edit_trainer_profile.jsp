@@ -36,6 +36,8 @@
 	String f_name = "", l_name = "", gender = "", dob = "", email = "", password = "", mobile = "",
 			address_line1 = "", address_line2 = "",ug_name="",pg_name="";
 	int pincode=0;
+	int work_exp_year=0;
+	int work_exp_month=0;
 	if (userData.size() != 0) {
 			for (HashMap<String, Object> row : userData) {
 				f_name = (String) row.get("firstname");
@@ -49,6 +51,9 @@
 				address_line1 = (String) row.get("addressline1")!=null?(String) row.get("addressline1"):"";
 				address_line2 = (String) row.get("addressline2")!=null?(String) row.get("addressline1"):"";
 				pincode = (int) row.get("pincode_id");
+				work_exp_year =  row.get("work_exp_year")!=null?(int) row.get("work_exp_year"):0;
+				work_exp_month = row.get("work_exp_month")!=null?(int) row.get("work_exp_month"):0;
+				System.out.print("<<<<<<"+pincode);
 
 			}
 	}
@@ -135,7 +140,7 @@
 								<div class="col-lg-6">
 											<div class="form-group">
 												<label class="col-sm-4 control-label">Upload Resume:</label>
-
+                                                <input type="hidden" name="triner_id" value="<%=trainer_id%>">
 												<div class="col-sm-5">
 													<input type="file" name="files"/>
                                                  
@@ -269,7 +274,7 @@
 															if (pincode_data.size() > 0) {
 																for (HashMap<String, Object> row : pincode_data) {
 														%>
-														<option value="<%=row.get("id")%>"><%=row.get("pin")%></option>
+														<option <%= (pincode == (int)(row.get("id")))?"selected":"" %>  value="<%=row.get("id")%>"><%=row.get("pin")%></option>
 														<%
 															}
 															}
@@ -338,11 +343,11 @@
 												<label class="col-sm-2 control-label">Experience:</label>
 
 												<div class="col-sm-3 ">
-													<input type="number" required placeholder="year"
+													<input type="number" required placeholder="year" value="<%=work_exp_year %>"
 														name="experince_years" class="form-control">
 												</div>
 												<div class="col-sm-3 ">
-													<input type="number" required placeholder="month"
+													<input type="number" required placeholder="month" value="<%=work_exp_month %>"
 														name="experince_months" class="form-control">
 												</div>
 											</div>
@@ -369,9 +374,11 @@
 														<%
 															if (courseData.size() > 0) {
 																for (HashMap<String, Object> row1 : courseData) {
+																	
+																	System.out.println("---->"+pincode);
 														%>
 
-														<option value="<%=row1.get("id")%>" <%=(intrestedList.contains(row1.get("id")))?"selected":"" %>><%=row1.get("title")%></option>
+														<option value="<%=row1.get("id")%>" <%=(intrestedList.contains(row1.get("id")))?"selected":"" %> ><%=row1.get("title")%></option>
 
 
 														<%
@@ -735,6 +742,25 @@
 							</br> <label class="col-sm-6 control-label">Mark the preferred
 								College or Center locations:</label>
 							<div id="googleMap" style="width: 100%; height: 82vh;"></div>
+							
+							<div style="margin: 28px;" id="address_view">
+								<%
+								
+								if(trainerLocationData.size()!=0){
+									for (HashMap<String, Object> row : trainerLocationData) {
+										
+									
+								%>
+								<p><b>Address:</b> <%=(String)row.get("prefred_location") %></p>
+								
+								<%
+								
+									}
+								}
+								
+								%>
+								
+								</div>
 
 						</div>
 
@@ -806,6 +832,7 @@
 					                $("#result").text(data);
 					                console.log("SUCCESS : ", data);
 					                $("#btnSubmit").prop("disabled", false);
+					                alert('Upload');
 
 					            },
 					            error: function (e) {

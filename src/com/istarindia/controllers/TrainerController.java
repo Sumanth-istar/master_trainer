@@ -65,6 +65,11 @@ public class TrainerController extends IStarBaseServelet {
 
         		        			 System.err.println(sqqql);
         		    	    		 db.executeUpdate(sqqql);
+        		    	    		 
+        		    	    		 
+        		    	    		 String sqqll = "UPDATE student SET  signup_status = 'SIGNED_UP' WHERE 	(ID = "+trainer_id+");";
+        		    				 System.err.println(sqqll);
+        		    	  			 db.executeUpdate(sqqll);
     	    	    				}
     		     			  
     		    				

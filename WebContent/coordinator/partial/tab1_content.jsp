@@ -74,7 +74,9 @@ List<HashMap<String, Object>> trainerData = coordinatorservice.getAllTrainerStat
 									%>
 
 											<tr>
-												<td><%=row.get("s_id") %></td>
+												<td><a
+													href="/master_trainer/master_trainer/trainer_profile.jsp?trainer_id=<%=row.get("s_id") %>"
+													target="_blank"><%=row.get("s_id") %></a></td>
 												<td><%=row.get("s_email") %></td>
 												<td><%=row.get("s_name") %></td>
 												<td><%=row.get("s_comment") %></td>	

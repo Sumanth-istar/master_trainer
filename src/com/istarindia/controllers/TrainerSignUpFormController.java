@@ -78,7 +78,8 @@ public class TrainerSignUpFormController extends IStarBaseServelet {
 		 address_line1 = request.getParameter("address_line1")!=null?request.getParameter("address_line1"):"";
 		 address_line2 = request.getParameter("address_line2")!=null?request.getParameter("address_line2"):"";
 		 pincode = request.getParameter("pincode")!=null?Integer.parseInt(request.getParameter("pincode")):0;
-		 
+		 experince_months =  request.getParameter("experince_months")!=null?request.getParameter("experince_months"):"";
+		 experince_years = request.getParameter("experince_years")!=null?request.getParameter("experince_years"):"";
 		 String presentor[] = email.split("@");
 		 String part1 = presentor[0];
 		 String part2 = presentor[1];
@@ -119,8 +120,8 @@ public class TrainerSignUpFormController extends IStarBaseServelet {
             
          
             
-             sql = "INSERT INTO student_profile_data (student_id, firstname, lastname, dob, mobileno, gender, pincode, aadharno, email, yop_10, marks_10, yop_12, marks_12, has_under_graduation, under_graduation_specialization_name, under_gradution_marks, has_post_graduation, post_graduation_specialization_name, post_gradution_marks, is_studying_further_after_degree, job_sector, preferred_location, company_name, position, duration, description, interested_in_type_of_course, area_of_interest, image_url_10, image_url_12, profile_image, id, under_graduate_degree_name, pg_degree_name, resume_url, user_category) "
-    				+ "VALUES ('"+trainer_id+"', '"+f_name+" ', '"+l_name+"', '"+dob+"', '"+mobile+"', '"+gender+"', NULL, '0', '"+email+"', NULL, NULL, NULL, NULL, '"+has_ug_degree+"', 'NOT PROVIDED', NULL, '"+has_pg_degree+"', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '/video/android_images/"+f_name.toUpperCase().charAt(0)+".png', (Select max(id)+1 from student_profile_data), '"+ug_degree+"', '"+pg_degree+"', NULL, NULL);";
+             sql = "INSERT INTO student_profile_data (student_id, firstname, lastname, dob, mobileno, gender, pincode, aadharno, email, yop_10, marks_10, yop_12, marks_12, has_under_graduation, under_graduation_specialization_name, under_gradution_marks, has_post_graduation, post_graduation_specialization_name, post_gradution_marks, is_studying_further_after_degree, job_sector, preferred_location, company_name, position, duration, description, interested_in_type_of_course, area_of_interest, image_url_10, image_url_12, profile_image, id, under_graduate_degree_name, pg_degree_name, resume_url, user_category,work_exp_year,work_exp_month) "
+    				+ "VALUES ('"+trainer_id+"', '"+f_name+" ', '"+l_name+"', '"+dob+"', '"+mobile+"', '"+gender+"', NULL, '0', '"+email+"', NULL, NULL, NULL, NULL, '"+has_ug_degree+"', 'NOT PROVIDED', NULL, '"+has_pg_degree+"', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '/video/android_images/"+f_name.toUpperCase().charAt(0)+".png', (Select max(id)+1 from student_profile_data), '"+ug_degree+"', '"+pg_degree+"', NULL, NULL,'"+experince_years+"','"+experince_months+"');";
     		
              System.err.println(sql);
              db.executeUpdate(sql);

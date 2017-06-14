@@ -20,7 +20,7 @@ public class CoordinatorService {
 	}
 	
 	public  List<HashMap<String, Object>> getAllTrainerBycourseDetails(){
-	String sql ="SELECT DISTINCT 	cmsession. ID, 	cmsession.title, 	pincode.city, 	COUNT (*) FILTER (  		WHERE 			student.signup_status = 'SIGNED_UP' 	) AS SIGNED_UP, 	COUNT (*) FILTER (  		WHERE 			student.signup_status = 'ASSESSMENT_COMPLETED' 	) AS ASSESSMENT_COMPLETED, 	COUNT (*) FILTER (  		WHERE 			student.signup_status = 'INTERVIEW_COMPLETED' 	) AS INTERVIEW_COMPLETED, 	COUNT (*) FILTER (  		WHERE 			student.signup_status = 'DEMO_COMPLETED' 	) AS DEMO_COMPLETED FROM 	MODULE, 	cmsession, 	lesson, 	assessment, 	trainer_assessment, 	student, 	address, 	pincode WHERE 	MODULE . ID = cmsession.module_id AND cmsession. ID = lesson.session_id AND lesson. ID = assessment.lesson_id AND trainer_assessment.assessment_id = assessment. ID AND trainer_assessment.trainer_id = student. ID AND student.address_id = address. ID AND address.pincode_id = pincode. ID AND MODULE .course_id = 67 AND assessment. ID IN ( 	10574, 	10578, 	10568, 	10565, 	10572, 	10566, 	10567, 	10577, 	10569, 	10571, 	10573, 	10570 ) GROUP BY 	cmsession. ID, 	cmsession.title, 	pincode.city";
+	String sql ="SELECT DISTINCT 	pre_l1_info.session_id, 	pre_l1_info.city,   cmsession.title,   pre_l1_info.pre_l1_data, COUNT (*) FILTER (  		WHERE 			student.signup_status = 'SIGNED_UP' 	) AS SIGNED_UP, 	COUNT (*) FILTER (  		WHERE 			student.signup_status = 'ASSESSMENT_COMPLETED' 	) AS ASSESSMENT_COMPLETED, 	COUNT (*) FILTER (  		WHERE 			student.signup_status = 'INTERVIEW_COMPLETED' 	) AS INTERVIEW_COMPLETED, 	COUNT (*) FILTER (  		WHERE 			student.signup_status = 'DEMO_COMPLETED' 	) AS DEMO_COMPLETED FROM  pre_l1_info,  cmsession,   pincode  LEFT JOIN address on ( pincode.id = address.pincode_id)  LEFT JOIN student on ( student.address_id = address.id)  WHERE 	pre_l1_info.city = pincode.city AND cmsession. ID = pre_l1_info.session_id GROUP BY pre_l1_info.session_id, 	pre_l1_info.city,   cmsession.title,pre_l1_info.pre_l1_data";
 
 	List<HashMap<String, Object>> data = db.executeQuery(sql);
 	
@@ -30,7 +30,7 @@ public class CoordinatorService {
 	
 	
 	public  List<HashMap<String, Object>> getAllTrainerPreL1Details(int sessionID, String city){
-		String sql ="SELECT cast(pre_l1_data as varchar) as pre_l1_data  FROM pre_l1_info WHERE city ='"+city+"'  AND session_id ="+sessionID;
+		String sql ="SELECT cast(pre_l1_data as varchar) as pre_l1_data  FROM pre_l1_info WHERE city ='"+city.toLowerCase()+"'  AND session_id ="+sessionID;
 
 		List<HashMap<String, Object>> data = db.executeQuery(sql);
 		

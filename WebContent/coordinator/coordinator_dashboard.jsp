@@ -37,6 +37,8 @@ System.out.print(coordinator_id);
 <link href="<%=baseURL %>font-awesome/css/font-awesome.css" rel="stylesheet">
 <link href="<%=baseURL %>css/plugins/dataTables/datatables.min.css"
 	rel="stylesheet">
+	 <link href="<%=baseURL %>css/plugins/select2/select2.min.css" rel="stylesheet">
+	
 <link href="<%=baseURL %>css/animate.css" rel="stylesheet">
 <link href="<%=baseURL %>css/style.css" rel="stylesheet">
 <link href="<%=baseURL %>css/custom.css" rel="stylesheet">
@@ -100,11 +102,74 @@ System.out.print(coordinator_id);
 <script src="<%=baseURL %>js/bootstrap.min.js"></script>
 <!-- Chosen -->
 <script src="<%=baseURL %>js/plugins/chosen/chosen.jquery.js"></script>
+ <!-- Select2 -->
+    <script src="<%=baseURL %>js/plugins/select2/select2.full.min.js"></script>
+    
+     <!-- Jquery Validate -->
+    <script src="<%=baseURL %>js/plugins/validate/jquery.validate.min.js"></script>
 
 
 <script type="text/javascript">
 
 $(document).ready(function(){
+	
+	  $(".select2_demo_1").select2();
+
+	  addPredata();
+	   addPreL1();
+	   datatable();
+	  
+});
+
+function addPreL1(){
+	
+$( ".pre_l1_btn" ).click(function() {
+		
+		var id = $(this).attr('id');
+		var idd =id.split('_')[3];
+		var inputData = $('#pre_l1_input_'+idd).val();
+		var city= $(this).attr("data-city");
+		var session_id= $(this).attr("data-session_id");
+		
+		var jsp="<%=baseURL%>coordinator";
+	    	$.post(jsp, 
+					{key:'pre_l1',inputData:inputData,session_id:session_id,city:city}, 
+					function(data) {
+						
+					
+			});
+		
+		});
+}
+
+function addPredata(){
+	
+	$( "#save_data" ).click(function() {
+			
+			var place_holder = $('#place_holder').val();
+			var calls_made = $('#calls_made').val();
+			var session_id = $('#session_id').val();
+			if(place_holder != '' && calls_made != ''){
+				
+				var jsp="<%=baseURL%>coordinator";
+		    	$.post(jsp, 
+						{key:'addPreData',calls_made:calls_made,place_holder:place_holder,session_id:session_id}, 
+						function(data) {
+							
+						
+				});
+				
+			}else{
+			
+				alert('Please Fill Place and no of calls made');
+				
+			}
+			
+			
+			});
+	}
+
+function datatable(){
 	
 	  $('.dataTables-example').DataTable({
 	        pageLength: 10,
@@ -124,28 +189,11 @@ $(document).ready(function(){
 	        ]
 
 	    });
+	 
+	   addPreL1();
 	
-	$( ".pre_l1_btn" ).click(function() {
-		
-		var id = $(this).attr('id');
-		var idd =id.split('_')[3];
-		var inputData = $('#pre_l1_input_'+idd).val();
-		var city= $(this).attr("data-city");
-		var session_id= $(this).attr("data-session_id");
-		
-		var jsp="<%=baseURL%>coordinator";
-	    	$.post(jsp, 
-					{key:'pre_l1',inputData:inputData,session_id:session_id,city:city}, 
-					function(data) {
-						
-					
-			});
-		
-		});
-   
-
-});
-
+	
+}
 
 
 

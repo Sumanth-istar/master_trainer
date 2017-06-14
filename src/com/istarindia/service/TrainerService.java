@@ -169,10 +169,22 @@ public class TrainerService {
 		return out;
 
 	}
+	
+	/*public List<HashMap<String, Object>> getAllPreferedTrainerlocation(int trainerID) {
+
+		String sql = "SELECT trainer_prefred_location.prefred_location FROM trainer_prefred_location WHERE trainer_id = "
+				+ trainerID;
+
+		System.out.println(sql);
+		List<HashMap<String, Object>> data = db.executeQuery(sql);
+		
+		return data;
+
+	}*/
 
 	public List<HashMap<String, Object>> getAllTrainerDetails(int trainerID) {
 
-		String sql = "SELECT 	student_profile_data.firstname, 	student_profile_data.lastname, 	student_profile_data.email, 	cast(student_profile_data.dob as varchar), 	cast(student_profile_data.mobileno as varchar), 	student_profile_data.under_graduate_degree_name, 	student_profile_data.pg_degree_name, student_profile_data.gender, address.addressline1, address.addressline2, address.pincode_id FROM 	student, 	student_profile_data,   address WHERE 	student. ID = student_profile_data.student_id AND address.id =student.address_id AND student. ID ="
+		String sql = "SELECT 	student_profile_data.firstname, 	student_profile_data.lastname, 	student_profile_data.email, student_profile_data.resume_url, 	cast(student_profile_data.dob as varchar), 	cast(student_profile_data.mobileno as varchar), 	student_profile_data.under_graduate_degree_name, 	student_profile_data.pg_degree_name, student_profile_data.gender, address.addressline1, address.addressline2, address.pincode_id, student_profile_data.work_exp_year, student_profile_data.work_exp_month FROM 	student, 	student_profile_data,   address WHERE 	student. ID = student_profile_data.student_id AND address.id =student.address_id AND student. ID ="
 				+ trainerID;
 
 		System.out.println(sql);
@@ -185,6 +197,7 @@ public class TrainerService {
 	public List<HashMap<String, Object>> getAllTrainerSessions(int trainerID) {
 
 		String sql = "SELECT 	cmsession. ID FROM 	trainer_assessment, 	assessment, 	lesson, 	cmsession WHERE 	assessment. ID = trainer_assessment.assessment_id AND assessment.lesson_id = lesson. ID AND cmsession. ID = lesson.session_id AND trainer_id = "+trainerID;
+		System.err.println(sql);
 		List<HashMap<String, Object>> data1 = db.executeQuery(sql);
 		return data1;
 	}
@@ -194,13 +207,7 @@ public class TrainerService {
 		String sql = "SELECT 	DAY, 	t8am_9am, 	t9am_10am, 	t10am_11am, 	t11am_12pm, 	t12pm_1pm, 	t1pm_2pm, 	t2pm_3pm, 	t3pm_4pm, 	t4pm_5pm, 	t5pm_6pm FROM 	trainer_available_time_sloat WHERE 	trainer_id ="
 				+ trainerID;
 		List<HashMap<String, Object>> data2 = db.executeQuery(sql);
-		if (data2.size() > 0) {
-
-			for (HashMap<String, Object> row2 : data2) {
-
-			}
-
-		}
+		
 
 		return data2;
 	}
@@ -210,20 +217,14 @@ public class TrainerService {
 				+ trainerID;
 		System.err.println(sql);
 		List<HashMap<String, Object>> data2 = db.executeQuery(sql);
-		if (data2.size() > 0) {
-
-			for (HashMap<String, Object> row2 : data2) {
-
-			}
-
-		}
+		
 
 		return data2;
 	}
 
 	public List<HashMap<String, Object>> getAllTrainerPrefredLocation(int trainerID) {
 
-		String sql = "SELECT marker_id FROM trainer_prefred_location WHERE trainer_id=" + trainerID;
+		String sql = "SELECT marker_id,prefred_location FROM trainer_prefred_location WHERE trainer_id=" + trainerID;
 		List<HashMap<String, Object>> data3 = db.executeQuery(sql);
 		return data3;
 	}

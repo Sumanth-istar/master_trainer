@@ -64,7 +64,7 @@
 
 
 
-						<div class="col-lg-12 question_holder">
+						<div style="user-select: none !important;"class="col-lg-12 question_holder">
 
 
 							<%=trainerservice.getAllQuestionForTrainer(assessment_id)%>

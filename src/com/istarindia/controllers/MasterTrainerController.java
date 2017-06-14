@@ -57,7 +57,7 @@ public class MasterTrainerController extends HttpServlet {
 					+ mastertrainer_id + ", '" + comment + "', " + is_tariner_selected + "," + trainer_id + ");";*/
 
 			String feedback_sql = "INSERT INTO master_trainer_feedback ( 	ID, 	master_trainer_id, 	COMMENT, 	is_selected, 	trainer_id, 	interview_status ) VALUES 	( 		(select COALESCE(max(id),0)+1 from master_trainer_feedback), 		"+mastertrainer_id+", 		'"+comment+"', 		"+is_tariner_selected+", 		"+trainer_id+",  "+interview_status+" 	);";
-			
+			System.err.println(feedback_sql);
 			db.executeUpdate(feedback_sql);
 			if(interview_status.equalsIgnoreCase("true")){
 				
@@ -67,14 +67,14 @@ public class MasterTrainerController extends HttpServlet {
 			}
 			
 			if (!courseids.equalsIgnoreCase("")) {
-
+				System.err.println(courseids);
 				String[] words = courseids.split(",");
-
+				System.err.println(words);
 				for (String courseid : words) {
 
 					String trainerskill_sql = "INSERT INTO trainer_skill (id, trainer_id, course_skill) VALUES ((select COALESCE(max(id),0)+1 from trainer_skill), "
 							+ trainer_id + ", " + Integer.parseInt(courseid.trim()) + ");";
-
+					//System.err.println(trainerskill_sql);
 					db.executeUpdate(trainerskill_sql);
 
 				}

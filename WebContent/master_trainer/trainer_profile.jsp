@@ -32,10 +32,12 @@
 	List<HashMap<String, Object>> intrestedCourses = trainerservice.getAllTrainerSessions(trainer_id);
 	List<HashMap<String, Object>> trainerAvaliabledata = trainerservice.getAllTrainerAvaTime(trainer_id);
 	List<HashMap<String, Object>> trainerLocationData = trainerservice.getAllTrainerPrefredLocation(trainer_id);
-
+	String resume_name =  "";
 	String f_name = "", l_name = "", gender = "", dob = "", email = "", password = "", mobile = "",
-			address_line1 = "", address_line2 = "",ug_name="",pg_name="";
+			address_line1 = "", address_line2 = "",ug_name="",pg_name="",resume_url="";
 	int pincode=0;
+	int work_exp_year=0;
+	int work_exp_month=0;
 	if (userData.size() != 0) {
 			for (HashMap<String, Object> row : userData) {
 				f_name = (String) row.get("firstname");
@@ -49,6 +51,13 @@
 				address_line1 = (String) row.get("addressline1")!=null?(String) row.get("addressline1"):"";
 				address_line2 = (String) row.get("addressline2")!=null?(String) row.get("addressline1"):"";
 				pincode = (int) row.get("pincode_id");
+				work_exp_year =  row.get("work_exp_year")!=null?(int) row.get("work_exp_year"):0;
+				work_exp_month = row.get("work_exp_month")!=null?(int) row.get("work_exp_month"):0;
+				resume_url = (String) row.get("resume_url")!=null?(String) row.get("resume_url"):"";
+				System.out.println("----->"+resume_url);
+				
+				
+				
 
 			}
 	}
@@ -129,6 +138,8 @@
 							<div class="ibox float-e-margins">
 
 								<div class="ibox-content">
+								
+								<a class="btn btn-info btn-rounded" href="<%=resume_url.equalsIgnoreCase("")?'#':baseURL.replaceAll("/master_trainer","")%><%=resume_url%>" <%=resume_url.equalsIgnoreCase("")?"":"download"%> >Download Resume</a>
 									<form class="form-horizontal" action=""
 										method="post">
 										<input type="hidden" id="teaching_address"
@@ -253,7 +264,7 @@
 															if (pincode_data.size() > 0) {
 																for (HashMap<String, Object> row : pincode_data) {
 														%>
-														<option value="<%=row.get("id")%>"><%=row.get("pin")%></option>
+														<option <%= (pincode == (int)(row.get("id")))?"selected":"" %> value="<%=row.get("id")%>"><%=row.get("pin")%></option>
 														<%
 															}
 															}
@@ -322,11 +333,11 @@
 												<label class="col-sm-2 control-label">Experience:</label>
 
 												<div class="col-sm-3 ">
-													<input type="number" required placeholder="year"
+													<input type="number" required placeholder="year" value="<%=work_exp_year %>"
 														name="experince_years" class="form-control">
 												</div>
 												<div class="col-sm-3 ">
-													<input type="number" required placeholder="month"
+													<input type="number" required placeholder="month" value="<%=work_exp_month %>"
 														name="experince_months" class="form-control">
 												</div>
 											</div>
@@ -536,6 +547,25 @@
 							</br> <label class="col-sm-6 control-label">Mark the preferred
 								College or Center locations:</label>
 							<div id="googleMap" style="width: 100%; height: 82vh;"></div>
+							
+							<div style="margin: 28px;" id="address_view">
+								<%
+								
+								if(trainerLocationData.size()!=0){
+									for (HashMap<String, Object> row : trainerLocationData) {
+										
+									
+								%>
+								<p><b>Address:</b> <%=(String)row.get("prefred_location") %></p>
+								
+								<%
+								
+									}
+								}
+								
+								%>
+								
+								</div>
 
 						</div>
 
