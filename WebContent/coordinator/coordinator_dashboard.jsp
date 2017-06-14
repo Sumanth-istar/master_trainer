@@ -115,7 +115,7 @@ $(document).ready(function(){
 	
 	  $(".select2_demo_1").select2();
 
-	  addPredata();
+	   addPredata();
 	   addPreL1();
 	   datatable();
 	  
@@ -190,7 +190,6 @@ function datatable(){
 
 	    });
 	 
-	   addPreL1();
 	
 	
 }
